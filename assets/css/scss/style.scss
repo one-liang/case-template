@@ -1,0 +1,94 @@
+// 1. Bootstrap 變數覆蓋
+@import "variables";
+
+// 2. Bootstrap 函式和 mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// 3. 自訂 mixins
+@import "mixins";
+
+// 4. Bootstrap 組件 (完整引入)
+@import "~bootstrap/scss/bootstrap";
+
+// 5. 自訂組件
+@import "components/buttons";
+@import "components/cards";
+@import "components/navigation";
+@import "components/forms";
+@import "components/hero";
+@import "components/footer";
+
+// 6. 頁面特定樣式
+@import "pages/home";
+@import "pages/about";
+@import "pages/contact";
+
+// 7. 全域樣式
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-base;
+  line-height: $line-height-base;
+  color: $body-color;
+  background-color: $body-bg;
+}
+
+// 無障礙設計
+.sr-only {
+  @include sr-only();
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: $primary;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  z-index: 9999;
+  
+  &:focus {
+    top: 0;
+  }
+}
+
+// 響應式圖片
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// 焦點樣式
+:focus {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+}
+
+// 選取文字顏色
+::selection {
+  background-color: $primary;
+  color: white;
+}
+
+// 印刷媒體樣式
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  .btn {
+    border: 1px solid #000;
+    background: transparent;
+    color: #000;
+  }
+}

@@ -1,0 +1,467 @@
+// 關於我們頁面樣式
+
+.about-page {
+  // 頁面標題區
+  .page-header {
+    background: linear-gradient(135deg, $primary, darken($primary, 10%));
+    color: white;
+    padding: 5rem 0 3rem;
+    
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      
+      @include media-breakpoint(xs) {
+        font-size: 2.5rem;
+      }
+    }
+    
+    .page-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  // 公司介紹區塊
+  .company-intro {
+    padding: 5rem 0;
+    
+    .intro-content {
+      .intro-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: $text-muted;
+        margin-bottom: 2rem;
+        
+        &:first-child {
+          font-size: 1.2rem;
+          color: $dark;
+          font-weight: 500;
+        }
+      }
+      
+      .intro-highlights {
+        background-color: $light;
+        padding: 2rem;
+        border-radius: $border-radius-lg;
+        margin-bottom: 2rem;
+        
+        .highlight-title {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+          color: $primary;
+        }
+        
+        .highlight-list {
+          list-style: none;
+          padding: 0;
+          
+          li {
+            padding: 0.5rem 0;
+            color: $text-muted;
+            
+            &::before {
+              content: "✓";
+              color: $success;
+              font-weight: bold;
+              margin-right: 0.75rem;
+            }
+          }
+        }
+      }
+    }
+    
+    .intro-image {
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: $border-radius-lg;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+  
+  // 公司歷史時間線
+  .company-history {
+    padding: 5rem 0;
+    background-color: $light;
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      color: $dark;
+    }
+    
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+      
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: $primary;
+        transform: translateX(-50%);
+        
+        @include media-breakpoint(xs) {
+          left: 30px;
+        }
+      }
+      
+      .timeline-item {
+        position: relative;
+        margin-bottom: 3rem;
+        
+        &:nth-child(even) {
+          .timeline-content {
+            @include media-breakpoint(md) {
+              text-align: right;
+            }
+          }
+        }
+        
+        .timeline-marker {
+          position: absolute;
+          left: 50%;
+          top: 0;
+          width: 20px;
+          height: 20px;
+          background-color: $primary;
+          border: 3px solid white;
+          border-radius: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+          
+          @include media-breakpoint(xs) {
+            left: 30px;
+          }
+        }
+        
+        .timeline-content {
+          background: white;
+          padding: 2rem;
+          border-radius: $border-radius-lg;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          margin-left: 3rem;
+          
+          @include media-breakpoint(md) {
+            width: 45%;
+            
+            &.left {
+              margin-right: 55%;
+              margin-left: 0;
+            }
+            
+            &.right {
+              margin-left: 55%;
+              margin-right: 0;
+            }
+          }
+          
+          @include media-breakpoint(xs) {
+            margin-left: 4rem;
+          }
+          
+          .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: $primary;
+            margin-bottom: 0.5rem;
+          }
+          
+          .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: $dark;
+          }
+          
+          .timeline-description {
+            color: $text-muted;
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+  }
+  
+  // 團隊成員區塊
+  .team-section {
+    padding: 5rem 0;
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: $dark;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: $text-muted;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .team-member {
+      text-align: center;
+      margin-bottom: 2rem;
+      
+      .member-photo {
+        position: relative;
+        margin-bottom: 1.5rem;
+        
+        img {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 4px solid white;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          transition: $transition-base;
+        }
+        
+        .member-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(45deg, rgba($primary, 0.8), rgba(darken($primary, 10%), 0.8));
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: $transition-base;
+          
+          .social-links {
+            display: flex;
+            gap: 1rem;
+            
+            a {
+              width: 40px;
+              height: 40px;
+              background-color: white;
+              color: $primary;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-decoration: none;
+              transition: $transition-base;
+              
+              &:hover {
+                background-color: $primary;
+                color: white;
+              }
+            }
+          }
+        }
+        
+        &:hover {
+          img {
+            transform: scale(1.05);
+          }
+          
+          .member-overlay {
+            opacity: 1;
+          }
+        }
+      }
+      
+      .member-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: $dark;
+      }
+      
+      .member-position {
+        font-size: 1rem;
+        color: $primary;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+      
+      .member-bio {
+        color: $text-muted;
+        line-height: 1.6;
+        font-size: 0.9rem;
+      }
+    }
+  }
+  
+  // 公司數據統計
+  .company-stats {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, $primary, darken($primary, 10%));
+    color: white;
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      
+      .stat-item {
+        text-align: center;
+        
+        .stat-icon {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          opacity: 0.8;
+        }
+        
+        .stat-number {
+          font-size: 3rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+          display: block;
+        }
+        
+        .stat-label {
+          font-size: 1.1rem;
+          opacity: 0.9;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+  
+  // 願景使命區塊
+  .vision-mission {
+    padding: 5rem 0;
+    background-color: $light;
+    
+    .vm-item {
+      background: white;
+      padding: 3rem;
+      border-radius: $border-radius-lg;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      height: 100%;
+      
+      .vm-icon {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(45deg, $primary, lighten($primary, 20%));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: white;
+        font-size: 2.5rem;
+      }
+      
+      .vm-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: $dark;
+      }
+      
+      .vm-description {
+        color: $text-muted;
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+    }
+  }
+  
+  // 核心價值觀
+  .core-values {
+    padding: 5rem 0;
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      color: $dark;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      
+      .value-item {
+        text-align: center;
+        padding: 2rem;
+        
+        .value-icon {
+          width: 80px;
+          height: 80px;
+          background-color: rgba($primary, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 1.5rem;
+          color: $primary;
+          font-size: 2rem;
+          transition: $transition-base;
+        }
+        
+        .value-title {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+          color: $dark;
+        }
+        
+        .value-description {
+          color: $text-muted;
+          line-height: 1.6;
+        }
+        
+        &:hover .value-icon {
+          background-color: $primary;
+          color: white;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+// 響應式調整
+@include media-breakpoint(xs) {
+  .about-page {
+    .company-intro,
+    .company-history,
+    .team-section,
+    .company-stats,
+    .vision-mission,
+    .core-values {
+      padding: 3rem 0;
+    }
+    
+    .section-title {
+      font-size: 2rem !important;
+    }
+    
+    .team-member .member-photo img {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .company-stats .stat-item .stat-number {
+      font-size: 2.5rem;
+    }
+  }
+}

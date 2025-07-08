@@ -1,0 +1,348 @@
+// Hero 區塊樣式
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, $primary 0%, darken($primary, 20%) 100%);
+  color: white;
+  overflow: hidden;
+  
+  // 背景圖片
+  &.hero-bg {
+    background-image: url('/assets/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba($primary, 0.8) 0%, rgba(darken($primary, 20%), 0.8) 100%);
+      z-index: 1;
+    }
+  }
+  
+  // 內容容器
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    
+    @include media-breakpoint(md) {
+      text-align: left;
+    }
+  }
+  
+  // 主標題
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    
+    @include media-breakpoint(md) {
+      font-size: 3.5rem;
+    }
+    
+    @include media-breakpoint(lg) {
+      font-size: 4rem;
+    }
+    
+    .highlight {
+      color: $warning;
+    }
+  }
+  
+  // 副標題
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    
+    @include media-breakpoint(md) {
+      font-size: 1.5rem;
+    }
+  }
+  
+  // 描述文字
+  .hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.8;
+    max-width: 600px;
+    
+    @include media-breakpoint(md) {
+      margin-bottom: 3rem;
+    }
+  }
+  
+  // 按鈕區域
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    @include media-breakpoint(sm) {
+      flex-direction: row;
+      justify-content: center;
+      
+      @include media-breakpoint(md) {
+        justify-content: flex-start;
+      }
+    }
+    
+    .btn {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      min-width: 180px;
+      
+      &.btn-primary {
+        background-color: white;
+        color: $primary;
+        border-color: white;
+        
+        &:hover {
+          background-color: rgba(white, 0.9);
+          transform: translateY(-2px);
+        }
+      }
+      
+      &.btn-outline-light {
+        &:hover {
+          background-color: white;
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+// 小型 Hero 區塊
+.hero-small {
+  min-height: 50vh;
+  padding: 4rem 0;
+  
+  .hero-title {
+    font-size: 2rem;
+    
+    @include media-breakpoint(md) {
+      font-size: 2.5rem;
+    }
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    
+    @include media-breakpoint(md) {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+// 分割式 Hero 區塊
+.hero-split {
+  .row {
+    min-height: 100vh;
+    align-items: center;
+  }
+  
+  .hero-image {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: $border-radius-lg;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// 影片背景 Hero
+.hero-video {
+  .hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+}
+
+// 輪播 Hero
+.hero-carousel {
+  .carousel-item {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+      z-index: 1;
+    }
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+  
+  .carousel-indicators {
+    bottom: 2rem;
+    
+    button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 5px;
+      
+      &.active {
+        background-color: $primary;
+      }
+    }
+  }
+}
+
+// 動畫效果
+.hero-section {
+  .hero-title {
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .hero-subtitle {
+    animation: fadeInUp 1s ease-out 0.2s both;
+  }
+  
+  .hero-description {
+    animation: fadeInUp 1s ease-out 0.4s both;
+  }
+  
+  .hero-actions {
+    animation: fadeInUp 1s ease-out 0.6s both;
+  }
+}
+
+// 關鍵幀動畫
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 滾動指示器
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+  
+  .scroll-text {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+  }
+  
+  .scroll-arrow {
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+// 響應式調整
+@include media-breakpoint(xs) {
+  .hero-section {
+    min-height: 80vh;
+    padding: 2rem 0;
+    
+    .hero-title {
+      font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+    
+    .hero-actions {
+      .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        min-width: 150px;
+      }
+    }
+  }
+}
+
+// 深色主題
+.hero-dark {
+  background: linear-gradient(135deg, $dark 0%, darken($dark, 10%) 100%);
+  
+  .hero-title {
+    color: white;
+  }
+  
+  .hero-subtitle,
+  .hero-description {
+    color: rgba(white, 0.9);
+  }
+}
