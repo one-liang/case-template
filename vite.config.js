@@ -5,7 +5,7 @@ export default defineConfig({
   // 開發伺服器配置
   server: {
     port: 3000,
-    open: '/index.html',
+    open: true,
     host: true
   },
 
@@ -18,12 +18,12 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // 多頁應用入口點
-        index: resolve(__dirname, 'src/pages/index.html'),
-        about: resolve(__dirname, 'src/pages/about.html'),
-        contact: resolve(__dirname, 'src/pages/contact.html'),
-        products: resolve(__dirname, 'src/pages/products.html'),
-        components: resolve(__dirname, 'src/pages/components.html'),
-        'design-system': resolve(__dirname, 'src/pages/design-system.html')
+        index: resolve(__dirname, 'index.html'),
+        about: resolve(__dirname, 'about.html'),
+        contact: resolve(__dirname, 'contact.html'),
+        products: resolve(__dirname, 'products.html'),
+        components: resolve(__dirname, 'components.html'),
+        'design-system': resolve(__dirname, 'design-system.html')
       },
       output: {
         // 保持清晰的檔案命名
