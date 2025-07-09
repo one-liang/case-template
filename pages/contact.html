@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="聯絡我們 - Case Template 靜態切版專用打包工具">
+    <title>聯絡我們 - Case Template</title>
+    <link rel="stylesheet" href="/assets/css/scss/style.scss">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="c-navigation" role="navigation" aria-label="主要導航">
+        <div class="container">
+            <div class="c-navigation__brand">
+                <a href="/pages/index.html" class="c-navigation__logo">Case Template</a>
+            </div>
+            <div class="c-navigation__menu">
+                <ul class="c-navigation__list">
+                    <li class="c-navigation__item">
+                        <a href="/pages/index.html" class="c-navigation__link">首頁</a>
+                    </li>
+                    <li class="c-navigation__item">
+                        <a href="/pages/about.html" class="c-navigation__link">關於我們</a>
+                    </li>
+                    <li class="c-navigation__item">
+                        <a href="/pages/products.html" class="c-navigation__link">產品服務</a>
+                    </li>
+                    <li class="c-navigation__item">
+                        <a href="/pages/contact.html" class="c-navigation__link is-active" aria-current="page">聯絡我們</a>
+                    </li>
+                    <li class="c-navigation__item">
+                        <a href="/pages/components.html" class="c-navigation__link">組件展示</a>
+                    </li>
+                </ul>
+            </div>
+            <button class="c-navigation__toggle" aria-label="開啟選單" aria-expanded="false">
+                <span class="c-navigation__hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="l-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="l-page-header__title">聯絡我們</h1>
+                    <p class="l-page-header__subtitle">有任何問題或建議，歡迎與我們聯絡</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <main class="l-main">
+        <section class="l-section">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Contact Form -->
+                    <div class="col-lg-8">
+                        <div class="c-contact-form">
+                            <h2 class="c-contact-form__title">傳送訊息</h2>
+                            <form class="c-form" role="form" aria-label="聯絡表單">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="c-form__group">
+                                            <label for="name" class="c-form__label">姓名 <span class="c-form__required" aria-label="必填">*</span></label>
+                                            <input type="text" 
+                                                   id="name" 
+                                                   name="name" 
+                                                   class="c-form__input" 
+                                                   required 
+                                                   aria-describedby="name-error">
+                                            <div id="name-error" class="c-form__error" role="alert"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="c-form__group">
+                                            <label for="email" class="c-form__label">電子信箱 <span class="c-form__required" aria-label="必填">*</span></label>
+                                            <input type="email" 
+                                                   id="email" 
+                                                   name="email" 
+                                                   class="c-form__input" 
+                                                   required 
+                                                   aria-describedby="email-error">
+                                            <div id="email-error" class="c-form__error" role="alert"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="c-form__group">
+                                            <label for="company" class="c-form__label">公司名稱</label>
+                                            <input type="text" 
+                                                   id="company" 
+                                                   name="company" 
+                                                   class="c-form__input">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="c-form__group">
+                                            <label for="subject" class="c-form__label">主旨 <span class="c-form__required" aria-label="必填">*</span></label>
+                                            <input type="text" 
+                                                   id="subject" 
+                                                   name="subject" 
+                                                   class="c-form__input" 
+                                                   required 
+                                                   aria-describedby="subject-error">
+                                            <div id="subject-error" class="c-form__error" role="alert"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="c-form__group">
+                                            <label for="message" class="c-form__label">訊息內容 <span class="c-form__required" aria-label="必填">*</span></label>
+                                            <textarea id="message" 
+                                                      name="message" 
+                                                      class="c-form__textarea" 
+                                                      rows="6" 
+                                                      required 
+                                                      aria-describedby="message-error"></textarea>
+                                            <div id="message-error" class="c-form__error" role="alert"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="c-form__group">
+                                            <div class="c-form__checkbox">
+                                                <input type="checkbox" 
+                                                       id="privacy" 
+                                                       name="privacy" 
+                                                       class="c-form__checkbox-input" 
+                                                       required>
+                                                <label for="privacy" class="c-form__checkbox-label">
+                                                    我同意個人資料保護政策 <span class="c-form__required" aria-label="必填">*</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="c-button c-button--primary c-button--large">
+                                            送出訊息
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="col-lg-4">
+                        <div class="c-contact-info">
+                            <h2 class="c-contact-info__title">聯絡資訊</h2>
+                            
+                            <div class="c-contact-info__item">
+                                <h3 class="c-contact-info__heading">技術支援</h3>
+                                <p class="c-contact-info__text">如有技術相關問題，歡迎透過以下方式聯絡我們：</p>
+                                <ul class="c-contact-info__list">
+                                    <li>Email: support@case-template.com</li>
+                                    <li>GitHub: github.com/one-liang/case-template</li>
+                                </ul>
+                            </div>
+
+                            <div class="c-contact-info__item">
+                                <h3 class="c-contact-info__heading">開發時間</h3>
+                                <p class="c-contact-info__text">我們的開發團隊活躍時間：</p>
+                                <ul class="c-contact-info__list">
+                                    <li>週一至週五：09:00 - 18:00 (UTC+8)</li>
+                                    <li>週末：不定期更新</li>
+                                </ul>
+                            </div>
+
+                            <div class="c-contact-info__item">
+                                <h3 class="c-contact-info__heading">回應時間</h3>
+                                <p class="c-contact-info__text">我們致力於在以下時間內回應您的詢問：</p>
+                                <ul class="c-contact-info__list">
+                                    <li>一般詢問：24-48 小時</li>
+                                    <li>技術問題：1-3 個工作天</li>
+                                    <li>緊急問題：當日回應</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="l-section c-faq">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="l-section__title text-center">常見問題</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="c-accordion">
+                            <div class="c-accordion__item">
+                                <button class="c-accordion__header" 
+                                        aria-expanded="false" 
+                                        aria-controls="faq-1">
+                                    如何開始使用 Case Template？
+                                </button>
+                                <div id="faq-1" class="c-accordion__content">
+                                    <p>首先克隆專案到本地，然後執行 <code>npm install</code> 安裝依賴套件，最後執行 <code>npm run dev</code> 啟動開發環境即可開始使用。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="c-accordion__item">
+                                <button class="c-accordion__header" 
+                                        aria-expanded="false" 
+                                        aria-controls="faq-2">
+                                    支援哪些瀏覽器？
+                                </button>
+                                <div id="faq-2" class="c-accordion__content">
+                                    <p>Case Template 支援所有現代瀏覽器，包括 Chrome、Firefox、Safari 和 Edge 的最新版本。我們使用 ES2020+ 語法，建議使用較新版本的瀏覽器以獲得最佳體驗。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="c-accordion__item">
+                                <button class="c-accordion__header" 
+                                        aria-expanded="false" 
+                                        aria-controls="faq-3">
+                                    可以自訂樣式嗎？
+                                </button>
+                                <div id="faq-3" class="c-accordion__content">
+                                    <p>當然可以！我們使用 SCSS 和 Bootstrap 變數系統，您可以在 <code>_variables.scss</code> 檔案中自訂顏色、字體、間距等設計系統變數。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="c-footer" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="c-footer__brand">
+                        <h3 class="c-footer__title">Case Template</h3>
+                        <p class="c-footer__description">靜態切版專用打包工具</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="c-footer__links">
+                        <h4 class="c-footer__heading">快速連結</h4>
+                        <ul class="c-footer__list">
+                            <li><a href="/pages/about.html" class="c-footer__link">關於我們</a></li>
+                            <li><a href="/pages/products.html" class="c-footer__link">產品服務</a></li>
+                            <li><a href="/pages/contact.html" class="c-footer__link">聯絡我們</a></li>
+                            <li><a href="/pages/components.html" class="c-footer__link">組件展示</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="c-footer__bottom">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="c-footer__copyright text-center">
+                            &copy; 2025 Case Template. All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

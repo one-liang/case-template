@@ -1,0 +1,352 @@
+// 小型組件 - BEM 命名規範
+
+// 提示訊息
+.c-alert {
+  padding: 1rem 1.5rem;
+  border-radius: $border-radius;
+  border: 1px solid transparent;
+  margin-bottom: 1rem;
+  
+  &--success {
+    background-color: lighten($success, 45%);
+    border-color: lighten($success, 30%);
+    color: darken($success, 30%);
+  }
+  
+  &--info {
+    background-color: lighten($info, 45%);
+    border-color: lighten($info, 30%);
+    color: darken($info, 30%);
+  }
+  
+  &--warning {
+    background-color: lighten($warning, 45%);
+    border-color: lighten($warning, 30%);
+    color: darken($warning, 30%);
+  }
+  
+  &--error {
+    background-color: lighten($danger, 45%);
+    border-color: lighten($danger, 30%);
+    color: darken($danger, 30%);
+  }
+}
+
+// 載入指示器
+.c-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid rgba($primary, 0.2);
+  border-radius: 50%;
+  border-top-color: $primary;
+  animation: spin 1s ease-in-out infinite;
+  
+  &--small {
+    width: 1rem;
+    height: 1rem;
+    border-width: 2px;
+  }
+  
+  &--large {
+    width: 3rem;
+    height: 3rem;
+    border-width: 4px;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// 進度條
+.c-progress {
+  width: 100%;
+  height: 1rem;
+  background-color: $gray-200;
+  border-radius: $border-radius;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  
+  &__bar {
+    height: 100%;
+    background-color: $primary;
+    transition: width 0.3s ease;
+    
+    &--success {
+      background-color: $success;
+    }
+    
+    &--warning {
+      background-color: $warning;
+    }
+    
+    &--danger {
+      background-color: $danger;
+    }
+  }
+}
+
+// 標籤
+.c-badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: $border-radius;
+  color: $white;
+  background-color: $gray-600;
+  
+  &--primary {
+    background-color: $primary;
+  }
+  
+  &--success {
+    background-color: $success;
+  }
+  
+  &--warning {
+    background-color: $warning;
+  }
+  
+  &--danger {
+    background-color: $danger;
+  }
+  
+  &--info {
+    background-color: $info;
+  }
+  
+  &--outline {
+    background-color: transparent;
+    border: 1px solid $gray-600;
+    color: $gray-600;
+    
+    &.c-badge--primary {
+      border-color: $primary;
+      color: $primary;
+    }
+    
+    &.c-badge--success {
+      border-color: $success;
+      color: $success;
+    }
+    
+    &.c-badge--warning {
+      border-color: $warning;
+      color: $warning;
+    }
+    
+    &.c-badge--danger {
+      border-color: $danger;
+      color: $danger;
+    }
+    
+    &.c-badge--info {
+      border-color: $info;
+      color: $info;
+    }
+  }
+}
+
+// 工具提示
+.c-tooltip {
+  position: relative;
+  display: inline-block;
+  
+  &__content {
+    visibility: hidden;
+    width: 200px;
+    background-color: $dark;
+    color: $white;
+    text-align: center;
+    border-radius: $border-radius;
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 1050;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.875rem;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: $dark transparent transparent transparent;
+    }
+  }
+  
+  &:hover &__content {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+// 分隔線
+.c-divider {
+  height: 1px;
+  background-color: $border-color;
+  margin: 2rem 0;
+  border: none;
+  
+  &--thick {
+    height: 2px;
+  }
+  
+  &--dashed {
+    background: none;
+    border-top: 1px dashed $border-color;
+  }
+  
+  &--dotted {
+    background: none;
+    border-top: 1px dotted $border-color;
+  }
+}
+
+// 步驟指示器
+.c-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.c-step {
+  text-align: center;
+  max-width: 250px;
+  
+  &__number {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: $primary;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0 auto 1rem;
+  }
+  
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: $headings-color;
+  }
+  
+  &__description {
+    color: $text-muted;
+    line-height: 1.6;
+  }
+}
+
+// 手風琴
+.c-accordion {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  
+  &__item {
+    border-bottom: 1px solid $border-color;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  &__header {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: $gray-50;
+    }
+    
+    &[aria-expanded="true"] {
+      background-color: $gray-100;
+      
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+    
+    &::after {
+      content: "▼";
+      font-size: 0.75rem;
+      transition: transform 0.2s ease;
+    }
+  }
+  
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    
+    &[aria-hidden="false"] {
+      max-height: 500px; // 調整為適當的最大高度
+      padding: 1rem 1.5rem;
+    }
+  }
+}
+
+// 統計卡片
+.c-stat-card {
+  &__number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $primary;
+    line-height: 1;
+  }
+  
+  &__label {
+    font-size: 0.875rem;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0.5rem;
+  }
+}
+
+// 特色卡片
+.c-feature-card {
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: $headings-color;
+  }
+  
+  &__text {
+    color: $text-muted;
+    line-height: 1.6;
+  }
+}

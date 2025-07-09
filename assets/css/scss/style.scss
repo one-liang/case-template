@@ -1,26 +1,25 @@
-// 1. Bootstrap 變數覆蓋
+// 1. 現代 Sass 語法支援
+@use "sass:math";
+@use "sass:color";
+
+// 2. 自訂變數和 mixins
 @import "variables";
-
-// 2. Bootstrap 函式和 mixins
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-
-// 3. 自訂 mixins
 @import "mixins";
 
-// 4. Bootstrap 組件 (完整引入)
-@import "~bootstrap/scss/bootstrap";
+// 3. Bootstrap 完整引入 (使用 @import 以確保相容性)
+@import "bootstrap/scss/bootstrap";
 
-// 5. 自訂組件
+// 4. 自訂組件
+@import "components/layout";
 @import "components/buttons";
 @import "components/cards";
 @import "components/navigation";
 @import "components/forms";
 @import "components/hero";
 @import "components/footer";
+@import "components/components";
 
-// 6. 頁面特定樣式
+// 5. 頁面特定樣式
 @import "pages/home";
 @import "pages/about";
 @import "pages/contact";

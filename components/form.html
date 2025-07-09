@@ -1,0 +1,237 @@
+<!-- 表單組件範例 -->
+
+<!-- 聯絡表單 -->
+<form class="needs-validation" novalidate>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="firstName" class="form-label">
+        姓名 <span class="text-danger" aria-label="必填">*</span>
+      </label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="firstName" 
+        name="firstName"
+        required 
+        aria-describedby="firstNameFeedback"
+      >
+      <div id="firstNameFeedback" class="invalid-feedback">
+        請輸入您的姓名
+      </div>
+    </div>
+    
+    <div class="col-md-6 mb-3">
+      <label for="lastName" class="form-label">
+        公司名稱
+      </label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="lastName" 
+        name="lastName"
+      >
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="email" class="form-label">
+        電子郵件 <span class="text-danger" aria-label="必填">*</span>
+      </label>
+      <input 
+        type="email" 
+        class="form-control" 
+        id="email" 
+        name="email"
+        required 
+        aria-describedby="emailHelp emailFeedback"
+      >
+      <div id="emailHelp" class="form-text">
+        我們不會與第三方分享您的電子郵件
+      </div>
+      <div id="emailFeedback" class="invalid-feedback">
+        請輸入有效的電子郵件地址
+      </div>
+    </div>
+    
+    <div class="col-md-6 mb-3">
+      <label for="phone" class="form-label">
+        聯絡電話
+      </label>
+      <input 
+        type="tel" 
+        class="form-control" 
+        id="phone" 
+        name="phone"
+        placeholder="例：0912-345-678"
+      >
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="service" class="form-label">
+      服務類型 <span class="text-danger" aria-label="必填">*</span>
+    </label>
+    <select 
+      class="form-select" 
+      id="service" 
+      name="service"
+      required 
+      aria-describedby="serviceFeedback"
+    >
+      <option value="">請選擇服務類型</option>
+      <option value="web-design">網站設計</option>
+      <option value="web-development">網站開發</option>
+      <option value="ui-ux">UI/UX 設計</option>
+      <option value="branding">品牌設計</option>
+      <option value="maintenance">網站維護</option>
+      <option value="consulting">顧問諮詢</option>
+    </select>
+    <div id="serviceFeedback" class="invalid-feedback">
+      請選擇一個服務類型
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="budget" class="form-label">
+      預算範圍
+    </label>
+    <select class="form-select" id="budget" name="budget">
+      <option value="">請選擇預算範圍</option>
+      <option value="under-50k">5 萬以下</option>
+      <option value="50k-100k">5-10 萬</option>
+      <option value="100k-200k">10-20 萬</option>
+      <option value="200k-500k">20-50 萬</option>
+      <option value="over-500k">50 萬以上</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="message" class="form-label">
+      專案描述 <span class="text-danger" aria-label="必填">*</span>
+    </label>
+    <textarea 
+      class="form-control" 
+      id="message" 
+      name="message"
+      rows="5" 
+      required 
+      aria-describedby="messageHelp messageFeedback"
+      placeholder="請詳細描述您的專案需求..."
+    ></textarea>
+    <div id="messageHelp" class="form-text">
+      請盡可能詳細描述您的需求，以便我們提供更準確的建議
+    </div>
+    <div id="messageFeedback" class="invalid-feedback">
+      請輸入專案描述
+    </div>
+  </div>
+
+  <div class="mb-3 form-check">
+    <input 
+      type="checkbox" 
+      class="form-check-input" 
+      id="agreement" 
+      name="agreement"
+      required
+    >
+    <label class="form-check-label" for="agreement">
+      我同意 <a href="#" class="text-decoration-none">隱私政策</a> 和 
+      <a href="#" class="text-decoration-none">服務條款</a>
+      <span class="text-danger" aria-label="必填">*</span>
+    </label>
+    <div class="invalid-feedback">
+      請同意隱私政策和服務條款
+    </div>
+  </div>
+
+  <div class="mb-3 form-check">
+    <input 
+      type="checkbox" 
+      class="form-check-input" 
+      id="newsletter" 
+      name="newsletter"
+    >
+    <label class="form-check-label" for="newsletter">
+      我願意收到相關產品資訊和優惠通知
+    </label>
+  </div>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="reset" class="btn btn-outline-secondary">
+      <i class="fas fa-undo me-2"></i>
+      重設
+    </button>
+    <button type="submit" class="btn btn-primary">
+      <i class="fas fa-paper-plane me-2"></i>
+      送出查詢
+    </button>
+  </div>
+</form>
+
+<!-- 搜尋表單 -->
+<form class="d-flex" role="search">
+  <div class="input-group">
+    <input 
+      class="form-control" 
+      type="search" 
+      placeholder="搜尋..." 
+      aria-label="搜尋"
+      name="search"
+    >
+    <button class="btn btn-outline-primary" type="submit">
+      <i class="fas fa-search"></i>
+      <span class="visually-hidden">搜尋</span>
+    </button>
+  </div>
+</form>
+
+<!-- 登入表單 -->
+<form class="login-form">
+  <div class="mb-3">
+    <label for="loginEmail" class="form-label">電子郵件</label>
+    <input 
+      type="email" 
+      class="form-control" 
+      id="loginEmail" 
+      name="email"
+      required
+    >
+  </div>
+  
+  <div class="mb-3">
+    <label for="loginPassword" class="form-label">密碼</label>
+    <div class="input-group">
+      <input 
+        type="password" 
+        class="form-control" 
+        id="loginPassword" 
+        name="password"
+        required
+      >
+      <button 
+        class="btn btn-outline-secondary" 
+        type="button" 
+        onclick="togglePassword('loginPassword')"
+        aria-label="顯示/隱藏密碼"
+      >
+        <i class="fas fa-eye"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="rememberMe">
+    <label class="form-check-label" for="rememberMe">
+      記住我
+    </label>
+  </div>
+  
+  <div class="d-grid">
+    <button type="submit" class="btn btn-primary">登入</button>
+  </div>
+  
+  <div class="text-center mt-3">
+    <a href="#" class="text-decoration-none">忘記密碼？</a>
+  </div>
+</form>

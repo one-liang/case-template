@@ -1,0 +1,49 @@
+<!-- 主導航組件 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" aria-label="主導航">
+  <div class="container">
+    <!-- 品牌標誌 -->
+    <a class="navbar-brand fw-bold" href="/" aria-label="回到首頁">
+      <img src="/assets/images/logo.svg" alt="OneLiang" height="32" class="d-inline-block align-text-top me-2">
+      OneLiang
+    </a>
+
+    <!-- 行動版選單切換按鈕 -->
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" 
+      aria-expanded="false" 
+      aria-label="切換導航選單"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- 導航選單 -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto" role="menubar">
+        <li class="nav-item" role="none">
+          <a class="nav-link" href="/" role="menuitem" data-page="home">首頁</a>
+        </li>
+        <li class="nav-item" role="none">
+          <a class="nav-link" href="/pages/about.html" role="menuitem" data-page="about">關於我們</a>
+        </li>
+        <li class="nav-item" role="none">
+          <a class="nav-link" href="/pages/products.html" role="menuitem" data-page="products">服務項目</a>
+        </li>
+        <li class="nav-item" role="none">
+          <a class="nav-link" href="/pages/components.html" role="menuitem" data-page="components">組件展示</a>
+        </li>
+        <li class="nav-item" role="none">
+          <a class="nav-link" href="/pages/contact.html" role="menuitem" data-page="contact">聯絡我們</a>
+        </li>
+        <li class="nav-item" role="none">
+          <a class="nav-link btn btn-primary text-white px-3 ms-2" href="/pages/contact.html" role="menuitem">
+            立即諮詢
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
