@@ -1,5 +1,5 @@
 // HTML Validate 配置 - HTML 驗證
-module.exports = {
+export default {
   extends: ['html-validate:recommended'],
   
   rules: {

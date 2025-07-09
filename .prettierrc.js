@@ -1,5 +1,5 @@
 // Prettier 配置 - 代碼格式化
-module.exports = {
+export default {
   // 基本設定
   printWidth: 100,
   tabWidth: 2,

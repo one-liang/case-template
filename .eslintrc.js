@@ -1,5 +1,5 @@
 // ESLint 配置 - JavaScript 代碼檢查
-module.exports = {
+export default {
   env: {
     browser: true,
     es2020: true,
