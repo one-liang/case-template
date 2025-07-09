@@ -5,7 +5,7 @@ export default defineConfig({
   // 開發伺服器配置
   server: {
     port: 3000,
-    open: true,
+    open: '/pages/index.html',
     host: true
   },
 
