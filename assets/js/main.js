@@ -701,8 +701,8 @@ const projectManager = new ProjectManager();
 // 將管理器暴露到全域作用域供調試使用
 window.projectManager = projectManager;
 
-// 服務工作者註冊 (PWA)
-if ('serviceWorker' in navigator) {
+// 服務工作者註冊 (PWA) - 僅在生產環境啟用
+if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js')
       .then(registration => {
