@@ -20,9 +20,6 @@ export default defineConfig({
         // 多頁應用入口點
         index: resolve(__dirname, 'index.html'),
         about: resolve(__dirname, 'about.html'),
-        contact: resolve(__dirname, 'contact.html'),
-        products: resolve(__dirname, 'products.html'),
-        components: resolve(__dirname, 'components.html'),
         'design-system': resolve(__dirname, 'design-system.html')
       },
       output: {

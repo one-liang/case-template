@@ -1,0 +1,180 @@
+// Design System 頁面專用樣式
+
+// Design System 特殊樣式
+.design-system {
+  // 標題區塊樣式
+  h2 {
+    border-bottom: 3px solid $primary;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: $success;
+    }
+  }
+  
+  h3 {
+    color: $secondary;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+}
+
+// Bootstrap 組件展示區塊
+.bs-component {
+  padding: 1.5rem;
+  border: 1px solid $gray-200;
+  border-radius: 8px;
+  background: $gray-50;
+  margin-bottom: 1rem;
+  
+  // 移除最後一個元素的 margin
+  > *:last-child {
+    margin-bottom: 0;
+  }
+  
+  // 按鈕間距
+  .btn + .btn {
+    margin-left: 0.5rem;
+  }
+  
+  // 表單元素間距
+  .form-control,
+  .form-select {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// 程式碼展示區塊
+.code-preview {
+  background: $dark;
+  color: $light;
+  padding: 1rem;
+  border-radius: 6px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  
+  code {
+    color: $warning;
+  }
+}
+
+// 色彩展示
+.color-swatch {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+// 工具提示和彈出框的靜態展示
+.tooltip-static,
+.popover-static {
+  position: static !important;
+  display: block !important;
+  margin: 0.5rem;
+  opacity: 1 !important;
+}
+
+// 模態框靜態展示
+.modal-static {
+  position: static;
+  display: block;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid $gray-300;
+  border-radius: 8px;
+  
+  .modal-dialog {
+    margin: 1rem;
+  }
+}
+
+// 導航欄展示區塊
+.navbar-demo {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+// 表格響應式容器
+.table-responsive-demo {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+// 卡片展示網格
+.card-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+// 進度條動畫展示
+.progress-demo {
+  .progress-bar {
+    transition: width 2s ease-in-out;
+  }
+}
+
+// 徽章展示容器
+.badge-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+// 載入動畫展示區域
+.spinner-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: $gray-100;
+  border-radius: 8px;
+}
+
+// 清單群組展示
+.list-group-demo {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+// 手風琴展示
+.accordion-demo {
+  .accordion-item {
+    border: 1px solid $gray-200;
+  }
+}
+
+// 分頁展示
+.pagination-demo {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+// 警告訊息展示
+.alert-demo {
+  .alert {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+}

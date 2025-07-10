@@ -1,0 +1,158 @@
+// About 頁面專用樣式
+
+// About 頁面 Hero 區塊
+.about-hero {
+  background: linear-gradient(135deg, $secondary, $info);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+  
+  &__subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// About 內容區塊
+.about-content {
+  padding: 60px 0;
+  
+  &__section {
+    margin-bottom: 4rem;
+  }
+  
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: $dark;
+  }
+  
+  &__text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: $gray-700;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// 團隊成員卡片
+.team-member {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  &__avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, $primary, $info);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: 600;
+  }
+  
+  &__name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: $dark;
+  }
+  
+  &__role {
+    color: $primary;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  
+  &__bio {
+    font-size: 0.95rem;
+    color: $gray-600;
+    line-height: 1.5;
+  }
+}
+
+// 價值觀區塊
+.values {
+  background-color: $light;
+  padding: 80px 0;
+  
+  &__item {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  &__icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $success, $info);
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+  }
+  
+  &__title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: $dark;
+  }
+  
+  &__description {
+    color: $gray-600;
+    line-height: 1.6;
+  }
+}
+
+// 統計數據區塊
+.stats {
+  padding: 60px 0;
+  background: white;
+  
+  &__item {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  &__number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $primary;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  &__label {
+    font-size: 1.1rem;
+    color: $gray-600;
+    font-weight: 500;
+  }
+}
