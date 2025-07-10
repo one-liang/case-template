@@ -1,14 +1,15 @@
-// Pre-define variables (放在 Bootstrap imports 之前)
-// 自訂主題色彩
+// 匯入 Bootstrap 函數
+@import "bootstrap/scss/functions";
+
+// 自訂變數 (在 Bootstrap 變數之前定義以覆蓋預設值)
 // $primary: #007bff;
 // $secondary: #6c757d;
+// $font-size-base: 1rem;
+// $line-height-base: 1.5;
 
-// 匯入 Bootstrap 變數和函數
-@import "bootstrap/scss/functions";
+// 匯入 Bootstrap 變數
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
 @import "bootstrap/scss/maps";
-
-// Override variables (放在這裡覆蓋 Bootstrap 預設值)
-// $font-size-base: 1rem;
-// $line-height-base: 1.5;
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";

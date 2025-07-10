@@ -43,7 +43,7 @@
   &__text {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: $gray-700;
+    color: var(--bs-gray-700);
     margin-bottom: 1.5rem;
   }
 }
@@ -91,7 +91,7 @@
   
   &__bio {
     font-size: 0.95rem;
-    color: $gray-600;
+    color: var(--bs-gray-600);
     line-height: 1.5;
   }
 }
@@ -127,7 +127,7 @@
   }
   
   &__description {
-    color: $gray-600;
+    color: var(--bs-gray-600);
     line-height: 1.6;
   }
 }
@@ -152,7 +152,7 @@
   
   &__label {
     font-size: 1.1rem;
-    color: $gray-600;
+    color: var(--bs-gray-600);
     font-weight: 500;
   }
 }

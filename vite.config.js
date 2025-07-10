@@ -48,7 +48,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // 使用現代 Sass 語法，解決棄用警告
-        silenceDeprecations: ["legacy-js-api"],
+        silenceDeprecations: ["legacy-js-api", "color-functions", "import", "global-builtin"],
         api: "modern-compiler",
         // 添加 includePaths 來解析 node_modules
         includePaths: ['node_modules']

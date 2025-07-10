@@ -62,7 +62,7 @@
   &__text {
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    color: $gray-600;
+    color: var(--bs-gray-600);
   }
 }
 
@@ -87,7 +87,7 @@
   }
   
   &__text {
-    color: $gray-600;
+    color: var(--bs-gray-600);
     line-height: 1.6;
   }
 }
