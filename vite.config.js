@@ -18,9 +18,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // 多頁應用入口點
-        index: resolve(__dirname, 'index.html'),
-        about: resolve(__dirname, 'about.html'),
-        'design-system': resolve(__dirname, 'design-system.html')
+        index: resolve(__dirname, 'src/pages/index.html'),
+        about: resolve(__dirname, 'src/pages/about.html'),
+        'design-system': resolve(__dirname, 'src/pages/design-system.html')
       },
       output: {
         // 保持清晰的檔案命名
