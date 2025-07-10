@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
+import fs from 'fs'
+import path from 'path'
 
 export default defineConfig({
   // 開發伺服器配置
@@ -22,8 +24,9 @@ export default defineConfig({
         about: resolve(__dirname, 'src/pages/about.html'),
         'design-system': resolve(__dirname, 'src/pages/design-system.html')
       },
+      // 自訂輸出配置
       output: {
-        // 保持清晰的檔案命名
+        // JS 檔案輸出配置
         entryFileNames: 'assets/js/[name].js',
         chunkFileNames: 'assets/js/[name].js',
         assetFileNames: (assetInfo) => {
@@ -42,6 +45,9 @@ export default defineConfig({
       }
     }
   },
+
+  // 設定 base 路徑為相對路徑，支援本地開啟
+  base: './',
 
   // CSS 配置
   css: {
@@ -71,5 +77,29 @@ export default defineConfig({
   publicDir: 'src/public',
 
   // 插件配置
-  plugins: []
+  plugins: [
+    // 自訂插件來移動 HTML 檔案到根目錄
+    {
+      name: 'move-html-to-root',
+      writeBundle(options, bundle) {
+        // 移動 HTML 檔案到根目錄
+        Object.keys(bundle).forEach(key => {
+          if (key.endsWith('.html')) {
+            const sourcePath = path.join(options.dir, key);
+            const targetPath = path.join(options.dir, path.basename(key));
+            
+            if (sourcePath !== targetPath && fs.existsSync(sourcePath)) {
+              fs.renameSync(sourcePath, targetPath);
+              
+              // 清理空的資料夾
+              const sourceDir = path.dirname(sourcePath);
+              if (fs.existsSync(sourceDir) && fs.readdirSync(sourceDir).length === 0) {
+                fs.rmdirSync(sourceDir, { recursive: true });
+              }
+            }
+          }
+        });
+      }
+    }
+  ]
 })
