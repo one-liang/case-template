@@ -46,8 +46,8 @@ export default defineConfig({
     }
   },
 
-  // 設定 base 路徑為相對路徑，支援本地開啟
-  base: './',
+  // 設定 base 路徑：開發時用相對路徑，GitHub Pages 用專案名稱
+  base: process.env.NODE_ENV === 'production' ? '/case-template/' : './',
 
   // CSS 配置
   css: {
