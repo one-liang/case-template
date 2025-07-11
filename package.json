@@ -25,9 +25,17 @@
     "optimize:images": "echo \"Image optimization not configured\"",
     "validate:html": "html-validate \"pages/**/*.html\"",
     "accessibility": "pa11y-ci --sitemap http://localhost:4173/sitemap.xml",
-    "pre-commit": "npm run lint:check && npm run format:check && npm run validate:html"
+    "pre-commit": "npm run lint:check && npm run format:check && npm run validate:html",
+    "deploy": "npm run build && gh-pages -d dist",
+    "deploy:clean": "npm run build && gh-pages -d dist -f"
   },
-  "keywords": ["static", "template", "bootstrap", "scss", "vite"],
+  "keywords": [
+    "static",
+    "template",
+    "bootstrap",
+    "scss",
+    "vite"
+  ],
   "author": "OneLiang",
   "license": "MIT",
   "devDependencies": {
@@ -35,14 +43,15 @@
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
+    "gh-pages": "^6.3.0",
     "html-validate": "^8.24.2",
     "lighthouse": "^12.2.1",
     "pa11y-ci": "^3.1.0",
     "prettier": "^3.4.2",
     "sass": "^1.89.2",
     "stylelint": "^16.12.0",
-    "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-standard-scss": "^13.1.0",
     "vite": "^7.0.3",
     "vite-bundle-analyzer": "^0.18.0",
     "vite-plugin-handlebars": "^2.0.0"
