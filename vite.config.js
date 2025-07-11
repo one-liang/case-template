@@ -20,9 +20,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // 多頁應用入口點
-        index: resolve(__dirname, 'pages/index.html'),
-        about: resolve(__dirname, 'pages/about.html'),
-        'design-system': resolve(__dirname, 'pages/design-system.html')
+        index: resolve(__dirname, 'src/pages/index.html'),
+        about: resolve(__dirname, 'src/pages/about.html'),
+        'design-system': resolve(__dirname, 'src/pages/design-system.html')
       },
       // 自訂輸出配置
       output: {
