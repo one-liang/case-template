@@ -1,0 +1,74 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss"
+  ],
+  "plugins": [],
+  "rules": {
+    "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "scss/percent-placeholder-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "scss/at-function-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "selector-class-pattern": [
+      "^([a-z][a-z0-9]*)(-[a-z0-9]+)*(__[a-z0-9]+((-[a-z0-9]+)*)*)?(--[a-z0-9]+((-[a-z0-9]+)*)*)?$",
+      {
+        "message": "Expected class selector to follow BEM naming convention"
+      }
+    ],
+    "selector-id-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "selector-max-id": 1,
+    "selector-max-universal": 1,
+    "selector-max-type": 2,
+    "selector-max-class": 4,
+    "selector-max-attribute": 2,
+    "selector-max-pseudo-class": 3,
+    "property-no-vendor-prefix": [true, {
+      "ignoreProperties": ["appearance", "user-select", "backdrop-filter"]
+    }],
+    "value-no-vendor-prefix": [true, {
+      "ignoreValues": ["box", "inline-box"]
+    }],
+    "at-rule-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "unit-allowed-list": [
+      "px", "em", "rem", "%", "vh", "vw", "vmin", "vmax",
+      "deg", "rad", "turn", "s", "ms", "fr"
+    ],
+    "number-max-precision": 3,
+    "length-zero-no-unit": true,
+    "color-hex-length": "short",
+    "color-named": "never",
+    "declaration-empty-line-before": "never",
+    "rule-empty-line-before": ["always", {
+      "except": ["first-nested"],
+      "ignore": ["after-comment"]
+    }],
+    "comment-empty-line-before": ["always", {
+      "except": ["first-nested"],
+      "ignore": ["stylelint-commands"]
+    }],
+    "declaration-property-value-no-unknown": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "custom-media-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "custom-property-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "function-url-quotes": "always",
+    "comment-word-disallowed-list": [
+      ["todo", "fixme", "hack"],
+      {
+        "severity": "warning"
+      }
+    ],
+    "no-descending-specificity": null,
+    "alpha-value-notation": null,
+    "color-function-notation": null,
+    "shorthand-property-no-redundant-values": null,
+    "selector-pseudo-element-no-unknown": [true, {
+      "ignorePseudoElements": ["ng-deep"]
+    }]
+  },
+  "ignoreFiles": [
+    "dist/**/*",
+    "node_modules/**/*",
+    "assets/css/style.css"
+  ]
+}

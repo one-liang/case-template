@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "timeout": 30000,
+    "wait": 1000,
+    "chromeLaunchConfig": {
+      "headless": true,
+      "args": [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage"
+      ]
+    },
+    "standard": "WCAG2AA",
+    "reporters": [
+      "cli"
+    ],
+    "ignore": [
+      "notice",
+      "warning"
+    ],
+    "hideElements": ".skip-link"
+  },
+  "urls": [
+    "http://localhost:4173/pages/index.html",
+    "http://localhost:4173/pages/about.html",
+    "http://localhost:4173/pages/contact.html",
+    "http://localhost:4173/pages/products.html",
+    "http://localhost:4173/pages/components.html"
+  ]
+}
