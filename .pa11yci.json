@@ -4,20 +4,11 @@
     "wait": 1000,
     "chromeLaunchConfig": {
       "headless": true,
-      "args": [
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage"
-      ]
+      "args": ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
     },
     "standard": "WCAG2AA",
-    "reporters": [
-      "cli"
-    ],
-    "ignore": [
-      "notice",
-      "warning"
-    ],
+    "reporters": ["cli"],
+    "ignore": ["notice", "warning"],
     "hideElements": ".skip-link"
   },
   "urls": [

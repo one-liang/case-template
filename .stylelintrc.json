@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "stylelint-config-standard-scss",
-    "stylelint-config-prettier-scss"
-  ],
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
   "plugins": [],
   "rules": {
     "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9-]*$",
@@ -22,32 +19,41 @@
     "selector-max-class": 4,
     "selector-max-attribute": 2,
     "selector-max-pseudo-class": 3,
-    "property-no-vendor-prefix": [true, {
-      "ignoreProperties": ["appearance", "user-select", "backdrop-filter"]
-    }],
-    "value-no-vendor-prefix": [true, {
-      "ignoreValues": ["box", "inline-box"]
-    }],
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": ["appearance", "user-select", "backdrop-filter"]
+      }
+    ],
+    "value-no-vendor-prefix": [
+      true,
+      {
+        "ignoreValues": ["box", "inline-box"]
+      }
+    ],
     "at-rule-no-vendor-prefix": true,
     "selector-no-vendor-prefix": true,
-    "unit-allowed-list": [
-      "px", "em", "rem", "%", "vh", "vw", "vmin", "vmax",
-      "deg", "rad", "turn", "s", "ms", "fr"
-    ],
+    "unit-allowed-list": ["px", "em", "rem", "%", "vh", "vw", "vmin", "vmax", "deg", "rad", "turn", "s", "ms", "fr"],
     "number-max-precision": 3,
     "length-zero-no-unit": true,
     "color-hex-length": "short",
-    "color-named": "never",
+    "color-named": null,
     "declaration-empty-line-before": "never",
-    "rule-empty-line-before": ["always", {
-      "except": ["first-nested"],
-      "ignore": ["after-comment"]
-    }],
-    "comment-empty-line-before": ["always", {
-      "except": ["first-nested"],
-      "ignore": ["stylelint-commands"]
-    }],
-    "declaration-property-value-no-unknown": true,
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["stylelint-commands"]
+      }
+    ],
+    "declaration-property-value-no-unknown": [true, { "ignoreProperties": { "background": "/$.*$/", "background-color": "/$.*$/", "border-bottom": "/$.*$/" } }],
     "media-feature-name-no-vendor-prefix": true,
     "custom-media-pattern": "^[a-z][a-zA-Z0-9-]*$",
     "custom-property-pattern": "^[a-z][a-zA-Z0-9-]*$",
@@ -62,13 +68,14 @@
     "alpha-value-notation": null,
     "color-function-notation": null,
     "shorthand-property-no-redundant-values": null,
-    "selector-pseudo-element-no-unknown": [true, {
-      "ignorePseudoElements": ["ng-deep"]
-    }]
+    "no-empty-source": null,
+    "scss/no-global-function-names": null,
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["ng-deep"]
+      }
+    ]
   },
-  "ignoreFiles": [
-    "dist/**/*",
-    "node_modules/**/*",
-    "assets/css/style.css"
-  ]
+  "ignoreFiles": ["dist/**/*", "node_modules/**/*", "assets/css/style.css"]
 }

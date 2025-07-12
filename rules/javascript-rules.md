@@ -3,6 +3,7 @@
 ## 核心原則
 
 ### 必須遵循 (MUST)
+
 - 使用 ES2020+ 語法特性
 - 優先使用現代瀏覽器原生 API
 - 遵循函數式編程理念
@@ -10,6 +11,7 @@
 - 事件處理函數以 `handle` 前綴命名
 
 ### 禁止 (MUST NOT)
+
 - 不要將所有功能打包成單一檔案
 - 避免過度依賴 jQuery
 - 不要使用已棄用的 API
@@ -17,6 +19,7 @@
 - 不要忽略錯誤處理
 
 ### 建議 (SHOULD)
+
 - 優先使用 Browser/UMD 版本套件
 - 使用 TypeScript 提供型別安全
 - 採用模組化開發
@@ -26,6 +29,7 @@
 ## 檔案管理結構
 
 ### ✅ 正確的檔案結構
+
 ```
 js/
 ├── lib/                    # 第三方函式庫
@@ -49,6 +53,7 @@ js/
 ```
 
 ### ❌ 錯誤的檔案結構
+
 ```
 js/
 └── all.min.js             # 所有功能打包在一起
@@ -64,7 +69,7 @@ const API_BASE_URL = 'https://api.example.com';
 let currentUser = null;
 
 // 使用箭頭函數
-const fetchUserData = async (userId) => {
+const fetchUserData = async userId => {
   try {
     const response = await fetch(`${API_BASE_URL}/users/${userId}`);
     const userData = await response.json();
@@ -103,12 +108,12 @@ const displayName = user.displayName ?? user.username ?? '匿名用戶';
 var userName = 'John'; // ❌
 
 // 避免使用 function 宣告在現代場景
-function getUserData() { } // ❌ 在模組中
+function getUserData() {} // ❌ 在模組中
 
 // 避免使用 callback hell
-getData(function(result) {
-  processData(result, function(processed) {
-    saveData(processed, function(saved) {
+getData(function (result) {
+  processData(result, function (processed) {
+    saveData(processed, function (saved) {
       // 回調地獄
     });
   });
@@ -121,15 +126,15 @@ getData(function(result) {
 
 ```javascript
 // 事件處理函數命名
-const handleLoginClick = (event) => {
+const handleLoginClick = event => {
   event.preventDefault();
   // 處理登入邏輯
 };
 
-const handleFormSubmit = async (event) => {
+const handleFormSubmit = async event => {
   event.preventDefault();
   const formData = new FormData(event.target);
-  
+
   try {
     await submitForm(formData);
     showSuccessMessage('提交成功！');
@@ -145,11 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 事件委派
-document.addEventListener('click', (event) => {
+document.addEventListener('click', event => {
   if (event.target.matches('.js-toggle-menu')) {
     handleMenuToggle(event);
   }
-  
+
   if (event.target.matches('.js-modal-trigger')) {
     handleModalOpen(event);
   }
@@ -163,10 +168,10 @@ document.addEventListener('click', (event) => {
 // <button onclick="doSomething()">按鈕</button> ❌
 
 // 避免直接綁定到元素
-button.onclick = function() { }; // ❌
+button.onclick = function () {}; // ❌
 
 // 避免 jQuery 風格（除非必要）
-$('.button').click(function() { }); // ❌
+$('.button').click(function () {}); // ❌
 ```
 
 ## 模組化開發
@@ -185,7 +190,7 @@ export const API_CONFIG = {
 
 export const apiClient = axios.create(API_CONFIG);
 
-export const fetchData = async (endpoint) => {
+export const fetchData = async endpoint => {
   try {
     const response = await apiClient.get(endpoint);
     return response.data;
@@ -204,33 +209,33 @@ export class NavigationManager {
     this.mobileMenu = document.querySelector('.js-mobile-menu');
     this.init();
   }
-  
+
   init() {
     this.bindEvents();
     this.setupKeyboardNavigation();
   }
-  
+
   bindEvents() {
     this.menuToggle?.addEventListener('click', this.handleMenuToggle.bind(this));
   }
-  
-  handleMenuToggle = (event) => {
+
+  handleMenuToggle = event => {
     event.preventDefault();
     this.mobileMenu.classList.toggle('is-open');
-    
+
     // 更新 ARIA 屬性
     const isOpen = this.mobileMenu.classList.contains('is-open');
     this.menuToggle.setAttribute('aria-expanded', isOpen);
-  }
-  
+  };
+
   setupKeyboardNavigation() {
-    document.addEventListener('keydown', (event) => {
+    document.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
         this.closeMobileMenu();
       }
     });
   }
-  
+
   closeMobileMenu() {
     this.mobileMenu.classList.remove('is-open');
     this.menuToggle.setAttribute('aria-expanded', 'false');
@@ -248,26 +253,26 @@ class App {
     this.carousel = null;
     this.formValidator = null;
   }
-  
+
   async init() {
     try {
       // 初始化核心組件
       this.navigation = new NavigationManager();
       this.carousel = new CarouselManager();
       this.formValidator = new FormValidator();
-      
+
       // 載入頁面特定功能
       await this.loadPageSpecificModules();
-      
+
       console.log('應用程式初始化完成');
     } catch (error) {
       console.error('應用程式初始化失敗:', error);
     }
   }
-  
+
   async loadPageSpecificModules() {
     const pageName = document.body.dataset.page;
-    
+
     if (pageName) {
       try {
         const pageModule = await import(`./pages/${pageName}.js`);
@@ -302,9 +307,9 @@ const handleApiError = (error, context = '') => {
     context,
     timestamp: new Date().toISOString()
   };
-  
+
   console.error('API 錯誤:', errorInfo);
-  
+
   // 根據錯誤類型顯示適當訊息
   if (error.response?.status === 401) {
     redirectToLogin();
@@ -316,26 +321,26 @@ const handleApiError = (error, context = '') => {
 };
 
 // 表單驗證錯誤處理
-const validateForm = (formData) => {
+const validateForm = formData => {
   const errors = [];
-  
+
   if (!formData.get('email')) {
     errors.push({ field: 'email', message: '請輸入電子郵件' });
   } else if (!isValidEmail(formData.get('email'))) {
     errors.push({ field: 'email', message: '請輸入有效的電子郵件格式' });
   }
-  
+
   if (!formData.get('password')) {
     errors.push({ field: 'password', message: '請輸入密碼' });
   } else if (formData.get('password').length < 8) {
     errors.push({ field: 'password', message: '密碼長度至少 8 字元' });
   }
-  
+
   return errors;
 };
 
 // 全域錯誤處理
-window.addEventListener('error', (event) => {
+window.addEventListener('error', event => {
   console.error('全域錯誤:', {
     message: event.message,
     filename: event.filename,
@@ -345,7 +350,7 @@ window.addEventListener('error', (event) => {
   });
 });
 
-window.addEventListener('unhandledrejection', (event) => {
+window.addEventListener('unhandledrejection', event => {
   console.error('未處理的 Promise 拒絕:', event.reason);
   event.preventDefault(); // 防止錯誤顯示在控制台
 });
@@ -370,7 +375,7 @@ const debounce = (func, wait) => {
 };
 
 // 搜尋輸入防抖動
-const handleSearchInput = debounce((event) => {
+const handleSearchInput = debounce(event => {
   const query = event.target.value;
   if (query.length >= 2) {
     performSearch(query);
@@ -380,13 +385,13 @@ const handleSearchInput = debounce((event) => {
 // 節流 (Throttle)
 const throttle = (func, limit) => {
   let inThrottle;
-  return function() {
+  return function () {
     const args = arguments;
     const context = this;
     if (!inThrottle) {
       func.apply(context, args);
       inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
+      setTimeout(() => (inThrottle = false), limit);
     }
   };
 };
@@ -409,13 +414,13 @@ const lazyLoadImages = () => {
       }
     });
   });
-  
+
   const lazyImages = document.querySelectorAll('img[data-src]');
   lazyImages.forEach(img => imageObserver.observe(img));
 };
 
 // 記憶化 (Memoization)
-const memoize = (fn) => {
+const memoize = fn => {
   const cache = new Map();
   return (...args) => {
     const key = JSON.stringify(args);
@@ -429,7 +434,7 @@ const memoize = (fn) => {
 };
 
 // 昂貴計算的記憶化
-const expensiveCalculation = memoize((data) => {
+const expensiveCalculation = memoize(data => {
   // 複雜計算邏輯
   return data.reduce((acc, item) => acc + item.value, 0);
 });
@@ -463,27 +468,27 @@ import { User, ApiResponse } from '../types/index.js';
 
 export class UserService {
   private baseURL: string;
-  
+
   constructor(baseURL: string) {
     this.baseURL = baseURL;
   }
-  
+
   async getUser(id: number): Promise<User> {
     try {
       const response = await fetch(`${this.baseURL}/users/${id}`);
       const result: ApiResponse<User> = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(result.message);
       }
-      
+
       return result.data;
     } catch (error) {
       console.error('獲取用戶失敗:', error);
       throw error;
     }
   }
-  
+
   async updateUser(id: number, updates: Partial<User>): Promise<User> {
     try {
       const response = await fetch(`${this.baseURL}/users/${id}`, {
@@ -493,7 +498,7 @@ export class UserService {
         },
         body: JSON.stringify(updates)
       });
-      
+
       const result: ApiResponse<User> = await response.json();
       return result.data;
     } catch (error) {
@@ -511,37 +516,37 @@ export class UserProfile {
   private container: HTMLElement;
   private userService: UserService;
   private currentUser: User | null = null;
-  
+
   constructor(container: HTMLElement, userService: UserService) {
     this.container = container;
     this.userService = userService;
     this.init();
   }
-  
+
   private init(): void {
     this.bindEvents();
   }
-  
+
   private bindEvents(): void {
     const editButton = this.container.querySelector('.js-edit-profile');
     editButton?.addEventListener('click', this.handleEditClick);
   }
-  
-  private handleEditClick: EventHandler = async (event) => {
+
+  private handleEditClick: EventHandler = async event => {
     event.preventDefault();
-    
+
     if (!this.currentUser) {
       console.warn('沒有當前用戶數據');
       return;
     }
-    
+
     try {
       await this.showEditModal(this.currentUser);
     } catch (error) {
       console.error('編輯用戶失敗:', error);
     }
-  }
-  
+  };
+
   async loadUser(userId: number): Promise<void> {
     try {
       this.currentUser = await this.userService.getUser(userId);
@@ -550,10 +555,10 @@ export class UserProfile {
       this.renderError('載入用戶資料失敗');
     }
   }
-  
+
   private render(): void {
     if (!this.currentUser) return;
-    
+
     this.container.innerHTML = `
       <div class="user-profile">
         <img src="${this.currentUser.avatar || '/default-avatar.png'}" 
@@ -565,7 +570,7 @@ export class UserProfile {
       </div>
     `;
   }
-  
+
   private renderError(message: string): void {
     this.container.innerHTML = `
       <div class="alert alert-danger" role="alert">
@@ -573,7 +578,7 @@ export class UserProfile {
       </div>
     `;
   }
-  
+
   private async showEditModal(user: User): Promise<void> {
     // 編輯模態框邏輯
   }
@@ -587,9 +592,9 @@ export class UserProfile {
 ```javascript
 // 鍵盤導航支援
 const setupKeyboardNavigation = () => {
-  document.addEventListener('keydown', (event) => {
+  document.addEventListener('keydown', event => {
     const { key, target } = event;
-    
+
     // ESC 鍵關閉模態框
     if (key === 'Escape') {
       const openModal = document.querySelector('.modal.show');
@@ -597,13 +602,13 @@ const setupKeyboardNavigation = () => {
         closeModal(openModal);
       }
     }
-    
+
     // Enter 或 Space 啟動按鈕
     if ((key === 'Enter' || key === ' ') && target.role === 'button') {
       event.preventDefault();
       target.click();
     }
-    
+
     // Tab 鍵焦點管理
     if (key === 'Tab') {
       manageFocusWithinModal(event);
@@ -625,9 +630,9 @@ const announceToScreenReader = (message, priority = 'polite') => {
   announcement.setAttribute('aria-atomic', 'true');
   announcement.className = 'sr-only';
   announcement.textContent = message;
-  
+
   document.body.appendChild(announcement);
-  
+
   // 移除元素避免累積
   setTimeout(() => {
     document.body.removeChild(announcement);
@@ -635,15 +640,15 @@ const announceToScreenReader = (message, priority = 'polite') => {
 };
 
 // 焦點管理
-const trapFocusInModal = (modal) => {
+const trapFocusInModal = modal => {
   const focusableElements = modal.querySelectorAll(
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
   );
-  
+
   const firstElement = focusableElements[0];
   const lastElement = focusableElements[focusableElements.length - 1];
-  
-  const handleTabKey = (event) => {
+
+  const handleTabKey = event => {
     if (event.key === 'Tab') {
       if (event.shiftKey) {
         if (document.activeElement === firstElement) {
@@ -658,10 +663,10 @@ const trapFocusInModal = (modal) => {
       }
     }
   };
-  
+
   modal.addEventListener('keydown', handleTabKey);
   firstElement?.focus();
-  
+
   return () => {
     modal.removeEventListener('keydown', handleTabKey);
   };
@@ -671,6 +676,7 @@ const trapFocusInModal = (modal) => {
 ## 程式碼品質檢查
 
 ### 自動檢查清單
+
 - [ ] 使用 ES2020+ 語法特性
 - [ ] 遵循函數式編程原則
 - [ ] 適當的錯誤處理
@@ -681,6 +687,7 @@ const trapFocusInModal = (modal) => {
 - [ ] 效能優化實施
 
 ### 手動檢查清單
+
 - [ ] 程式碼可讀性良好
 - [ ] 函數單一職責
 - [ ] 變數命名語意清楚
@@ -730,4 +737,4 @@ const trapFocusInModal = (modal) => {
 
 ---
 
-*遵循這些 JavaScript/TypeScript 規範能確保程式碼現代化、可維護和高品質* 
+_遵循這些 JavaScript/TypeScript 規範能確保程式碼現代化、可維護和高品質_

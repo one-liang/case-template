@@ -3,6 +3,7 @@
 ## 核心原則
 
 ### 必須遵循 (MUST)
+
 - 使用 Bootstrap Navbar + Offcanvas 作為基礎結構
 - 支援鍵盤導航和螢幕閱讀器
 - 實作適當的 ARIA 屬性
@@ -10,6 +11,7 @@
 - 支援行動裝置觸控操作
 
 ### 禁止 (MUST NOT)
+
 - 使用純 CSS 實作複雜的多層選單
 - 忽略無障礙設計考量
 - 在小螢幕上使用懸停式選單
@@ -17,6 +19,7 @@
 - 忽略語意化標記
 
 ### 建議 (SHOULD)
+
 - 優先考慮單層次導航
 - 使用漸進式增強策略
 - 提供清楚的視覺回饋
@@ -33,14 +36,14 @@
   <div class="container">
     <!-- 品牌標誌 -->
     <a class="navbar-brand" href="/">
-      <img src="logo.png" alt="網站標誌" width="120" height="40">
+      <img src="logo.png" alt="網站標誌" width="120" height="40" />
     </a>
-    
+
     <!-- 手機選單觸發按鈕 -->
-    <button 
-      class="navbar-toggler" 
-      type="button" 
-      data-bs-toggle="offcanvas" 
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
       data-bs-target="#navbarOffcanvas"
       aria-controls="navbarOffcanvas"
       aria-expanded="false"
@@ -48,7 +51,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <!-- 桌面選單 -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
@@ -59,10 +62,10 @@
           <a class="nav-link" href="/about">關於我們</a>
         </li>
         <li class="nav-item dropdown">
-          <a 
-            class="nav-link dropdown-toggle" 
-            href="#" 
-            role="button" 
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
@@ -71,34 +74,35 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/products/web">網站開發</a></li>
             <li><a class="dropdown-item" href="/products/app">手機應用</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="/products/consulting">顧問服務</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/contact">聯絡我們</a></li>
+          <a class="nav-link" href="/contact">聯絡我們</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
 <!-- 手機側邊選單 -->
-<div 
-  class="offcanvas offcanvas-end" 
-  tabindex="-1" 
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
   id="navbarOffcanvas"
   aria-labelledby="navbarOffcanvasLabel"
 >
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="navbarOffcanvasLabel">導航選單</h5>
-    <button 
-      type="button" 
-      class="btn-close" 
+    <button
+      type="button"
+      class="btn-close"
       data-bs-dismiss="offcanvas"
       aria-label="關閉選單"
     ></button>
   </div>
-  
+
   <div class="offcanvas-body">
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -108,8 +112,13 @@
         <a class="nav-link" href="/about">關於我們</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/products" data-bs-toggle="collapse" 
-           data-bs-target="#productsSubmenu" aria-expanded="false">
+        <a
+          class="nav-link"
+          href="/products"
+          data-bs-toggle="collapse"
+          data-bs-target="#productsSubmenu"
+          aria-expanded="false"
+        >
           產品服務
         </a>
         <div class="collapse" id="productsSubmenu">
@@ -136,14 +145,18 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <img src="logo.svg" alt="Company Logo" height="32">
+      <img src="logo.svg" alt="Company Logo" height="32" />
     </a>
-    
-    <button class="navbar-toggler border-0" type="button" 
-            data-bs-toggle="offcanvas" data-bs-target="#mobileNav">
+
+    <button
+      class="navbar-toggler border-0"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#mobileNav"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <!-- 桌面導航 -->
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto">
@@ -180,25 +193,34 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
   <div class="container">
     <a class="navbar-brand" href="/">Logo</a>
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" 
-            data-bs-target="#megaMenuOffcanvas">
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#megaMenuOffcanvas"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a class="nav-link" href="/">首頁</a>
         </li>
-        
+
         <!-- Mega Menu 項目 -->
         <li class="nav-item dropdown position-static">
-          <a class="nav-link dropdown-toggle" href="#" role="button" 
-             data-bs-toggle="dropdown" aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             產品與服務
           </a>
-          
+
           <!-- Mega Menu 內容 -->
           <div class="dropdown-menu w-100 mt-0 border-0 shadow">
             <div class="container">
@@ -210,21 +232,21 @@
                   <a class="dropdown-item" href="/ecommerce">電商網站</a>
                   <a class="dropdown-item" href="/cms">內容管理</a>
                 </div>
-                
+
                 <div class="col-lg-3">
                   <h6 class="dropdown-header">行動應用</h6>
                   <a class="dropdown-item" href="/mobile-app">手機應用</a>
                   <a class="dropdown-item" href="/progressive-web-app">PWA</a>
                   <a class="dropdown-item" href="/hybrid-app">混合應用</a>
                 </div>
-                
+
                 <div class="col-lg-3">
                   <h6 class="dropdown-header">數位行銷</h6>
                   <a class="dropdown-item" href="/seo">SEO 優化</a>
                   <a class="dropdown-item" href="/social-media">社群媒體</a>
                   <a class="dropdown-item" href="/content-marketing">內容行銷</a>
                 </div>
-                
+
                 <div class="col-lg-3">
                   <h6 class="dropdown-header">技術支援</h6>
                   <a class="dropdown-item" href="/hosting">主機服務</a>
@@ -235,7 +257,7 @@
             </div>
           </div>
         </li>
-        
+
         <li class="nav-item">
           <a class="nav-link" href="/about">關於我們</a>
         </li>
@@ -259,10 +281,10 @@ class NavigationManager {
     this.offcanvas = document.querySelector('.offcanvas');
     this.dropdowns = document.querySelectorAll('.navbar .dropdown');
     this.mobileMenuLinks = document.querySelectorAll('.offcanvas .nav-link');
-    
+
     this.init();
   }
-  
+
   init() {
     this.setupScrollBehavior();
     this.setupKeyboardNavigation();
@@ -270,14 +292,14 @@ class NavigationManager {
     this.setupDropdownBehavior();
     this.setupActiveStates();
   }
-  
+
   // 滾動時導航列行為
   setupScrollBehavior() {
     let lastScrollTop = 0;
-    
+
     window.addEventListener('scroll', () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
+
       // 滾動方向檢測
       if (scrollTop > lastScrollTop && scrollTop > 100) {
         // 向下滾動，隱藏導航列
@@ -286,43 +308,43 @@ class NavigationManager {
         // 向上滾動，顯示導航列
         this.navbar.classList.remove('navbar-hidden');
       }
-      
+
       // 滾動時添加陰影
       if (scrollTop > 0) {
         this.navbar.classList.add('navbar-scrolled');
       } else {
         this.navbar.classList.remove('navbar-scrolled');
       }
-      
+
       lastScrollTop = scrollTop;
     });
   }
-  
+
   // 鍵盤導航支援
   setupKeyboardNavigation() {
-    document.addEventListener('keydown', (event) => {
+    document.addEventListener('keydown', event => {
       // ESC 鍵關閉選單
       if (event.key === 'Escape') {
         this.closeAllDropdowns();
         this.closeMobileMenu();
       }
-      
+
       // Tab 鍵焦點管理
       if (event.key === 'Tab') {
         this.handleTabNavigation(event);
       }
-      
+
       // Arrow 鍵導航
       if (event.key.startsWith('Arrow')) {
         this.handleArrowNavigation(event);
       }
     });
   }
-  
+
   handleTabNavigation(event) {
     const focusableElements = this.getFocusableElements();
     const currentIndex = focusableElements.indexOf(document.activeElement);
-    
+
     if (event.shiftKey) {
       // Shift + Tab (向前)
       if (currentIndex === 0) {
@@ -337,16 +359,16 @@ class NavigationManager {
       }
     }
   }
-  
+
   handleArrowNavigation(event) {
     const activeElement = document.activeElement;
     const dropdown = activeElement.closest('.dropdown');
-    
+
     if (dropdown) {
       event.preventDefault();
       const items = dropdown.querySelectorAll('.dropdown-item');
       const currentIndex = Array.from(items).indexOf(activeElement);
-      
+
       if (event.key === 'ArrowDown') {
         const nextIndex = currentIndex < items.length - 1 ? currentIndex + 1 : 0;
         items[nextIndex].focus();
@@ -356,7 +378,7 @@ class NavigationManager {
       }
     }
   }
-  
+
   // 手機選單行為
   setupMobileMenuBehavior() {
     // 點擊連結後關閉手機選單
@@ -367,35 +389,36 @@ class NavigationManager {
         }
       });
     });
-    
+
     // 點擊背景關閉選單
     if (this.offcanvas) {
-      this.offcanvas.addEventListener('click', (event) => {
+      this.offcanvas.addEventListener('click', event => {
         if (event.target === this.offcanvas) {
           this.closeMobileMenu();
         }
       });
     }
   }
-  
+
   // 下拉選單行為優化
   setupDropdownBehavior() {
     this.dropdowns.forEach(dropdown => {
       const toggle = dropdown.querySelector('.dropdown-toggle');
       const menu = dropdown.querySelector('.dropdown-menu');
-      
+
       // 滑鼠懸停延遲顯示
       let hoverTimer;
-      
+
       dropdown.addEventListener('mouseenter', () => {
         clearTimeout(hoverTimer);
         hoverTimer = setTimeout(() => {
-          if (window.innerWidth >= 992) { // 只在桌面版啟用
+          if (window.innerWidth >= 992) {
+            // 只在桌面版啟用
             bootstrap.Dropdown.getOrCreateInstance(toggle).show();
           }
         }, 150);
       });
-      
+
       dropdown.addEventListener('mouseleave', () => {
         clearTimeout(hoverTimer);
         hoverTimer = setTimeout(() => {
@@ -404,19 +427,19 @@ class NavigationManager {
           }
         }, 300);
       });
-      
+
       // 防止選單外點擊時意外關閉
-      menu?.addEventListener('click', (event) => {
+      menu?.addEventListener('click', event => {
         event.stopPropagation();
       });
     });
   }
-  
+
   // 設定啟用狀態
   setupActiveStates() {
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
       if (href === currentPath || (href !== '/' && currentPath.startsWith(href))) {
@@ -425,7 +448,7 @@ class NavigationManager {
       }
     });
   }
-  
+
   // 輔助方法
   getFocusableElements() {
     const selectors = [
@@ -436,18 +459,19 @@ class NavigationManager {
       'textarea:not([disabled])',
       '[tabindex]:not([tabindex="-1"])'
     ];
-    
-    return Array.from(document.querySelectorAll(selectors.join(', ')))
-      .filter(el => el.offsetParent !== null);
+
+    return Array.from(document.querySelectorAll(selectors.join(', '))).filter(
+      el => el.offsetParent !== null
+    );
   }
-  
+
   closeAllDropdowns() {
     this.dropdowns.forEach(dropdown => {
       const toggle = dropdown.querySelector('.dropdown-toggle');
       bootstrap.Dropdown.getOrCreateInstance(toggle).hide();
     });
   }
-  
+
   closeMobileMenu() {
     if (this.offcanvas) {
       const offcanvasInstance = bootstrap.Offcanvas.getOrCreateInstance(this.offcanvas);
@@ -470,38 +494,35 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- 語意化導航結構 -->
 <nav role="navigation" aria-label="主導航">
   <h2 class="visually-hidden">主要導航選單</h2>
-  
+
   <!-- 跳轉連結（螢幕閱讀器） -->
-  <a class="visually-hidden-focusable" href="#main-content">
-    跳轉到主要內容
-  </a>
-  
+  <a class="visually-hidden-focusable" href="#main-content"> 跳轉到主要內容 </a>
+
   <!-- 導航項目 -->
   <ul class="navbar-nav" role="menubar">
     <li class="nav-item" role="none">
-      <a class="nav-link" href="/" role="menuitem" 
-         aria-current="page">首頁</a>
+      <a class="nav-link" href="/" role="menuitem" aria-current="page">首頁</a>
     </li>
-    
+
     <!-- 下拉選單項目 -->
     <li class="nav-item dropdown" role="none">
-      <a class="nav-link dropdown-toggle" href="#" 
-         role="menuitem" 
-         aria-haspopup="true" 
-         aria-expanded="false"
-         id="servicesMenu">
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        role="menuitem"
+        aria-haspopup="true"
+        aria-expanded="false"
+        id="servicesMenu"
+      >
         服務項目
       </a>
-      
-      <ul class="dropdown-menu" role="menu" 
-          aria-labelledby="servicesMenu">
+
+      <ul class="dropdown-menu" role="menu" aria-labelledby="servicesMenu">
         <li role="none">
-          <a class="dropdown-item" href="/web-design" 
-             role="menuitem">網站設計</a>
+          <a class="dropdown-item" href="/web-design" role="menuitem">網站設計</a>
         </li>
         <li role="none">
-          <a class="dropdown-item" href="/development" 
-             role="menuitem">程式開發</a>
+          <a class="dropdown-item" href="/development" role="menuitem">程式開發</a>
         </li>
       </ul>
     </li>
@@ -516,13 +537,13 @@ document.addEventListener('DOMContentLoaded', () => {
 .nav-link {
   position: relative;
   transition: all 0.2s ease;
-  
+
   &:focus {
     outline: 2px solid $primary;
     outline-offset: 2px;
     background-color: rgba($primary, 0.1);
   }
-  
+
   &:focus-visible {
     outline: 2px solid $primary;
     outline-offset: 2px;
@@ -551,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-  
+
   &:active,
   &:focus {
     position: static;
@@ -578,13 +599,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // 基本導航樣式
 .navbar {
   transition: all 0.3s ease;
-  
+
   &.navbar-scrolled {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
-  
+
   &.navbar-hidden {
     transform: translateY(-100%);
   }
@@ -597,19 +618,19 @@ document.addEventListener('DOMContentLoaded', () => {
       padding: 0.5rem 1rem;
       margin: 0 0.25rem;
       border-radius: 6px;
-      
+
       &:hover {
         background-color: rgba($primary, 0.1);
       }
     }
   }
-  
+
   // Mega Menu 樣式
   .dropdown-menu {
     border: none;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
-    
+
     .dropdown-header {
       color: $primary;
       font-weight: 600;
@@ -626,12 +647,12 @@ document.addEventListener('DOMContentLoaded', () => {
     .nav-link {
       padding: 0.75rem 1rem;
       border-bottom: 1px solid $gray-100;
-      
+
       &:hover {
         background-color: $gray-50;
       }
     }
-    
+
     // 手機版子選單
     .collapse {
       .nav-link {
@@ -648,7 +669,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .dropdown:hover .dropdown-menu {
     display: none;
   }
-  
+
   .nav-link {
     min-height: 44px; // 符合觸控標準
     display: flex;
@@ -668,7 +689,7 @@ const loadNavigationEnhancements = () => {
   if (document.querySelectorAll('.dropdown').length > 0) {
     import('./modules/dropdown-enhancements.js');
   }
-  
+
   if (document.querySelector('.mega-menu')) {
     import('./modules/mega-menu.js');
   }
@@ -677,17 +698,20 @@ const loadNavigationEnhancements = () => {
 // 使用 Intersection Observer 優化
 const observeNavigation = () => {
   const navbar = document.querySelector('.navbar');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navbar.classList.remove('navbar-scrolled');
-      } else {
-        navbar.classList.add('navbar-scrolled');
-      }
-    });
-  }, { threshold: 0.1 });
-  
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navbar.classList.remove('navbar-scrolled');
+        } else {
+          navbar.classList.add('navbar-scrolled');
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
   // 觀察頁面頂部
   const sentinel = document.createElement('div');
   sentinel.style.height = '1px';
@@ -699,7 +723,7 @@ const observeNavigation = () => {
 document.addEventListener('DOMContentLoaded', () => {
   // 基本導航功能立即載入
   new NavigationManager();
-  
+
   // 進階功能延遲載入
   requestIdleCallback(() => {
     loadNavigationEnhancements();
@@ -711,6 +735,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ## 程式碼品質檢查
 
 ### 導航組件檢查清單
+
 - [ ] 使用語意化 HTML 結構
 - [ ] 實作完整的鍵盤導航支援
 - [ ] 提供適當的 ARIA 屬性
@@ -723,6 +748,7 @@ document.addEventListener('DOMContentLoaded', () => {
 - [ ] 視覺設計與 UX 一致
 
 ### 手動測試項目
+
 - [ ] 所有連結功能正常
 - [ ] 下拉選單在不同裝置正確顯示
 - [ ] 鍵盤 Tab 順序邏輯正確
@@ -733,4 +759,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ---
 
-*遵循這些導航組件規範能確保使用者體驗優質且符合無障礙標準* 
+_遵循這些導航組件規範能確保使用者體驗優質且符合無障礙標準_

@@ -11,16 +11,16 @@ export default {
   bracketSpacing: true,
   bracketSameLine: false,
   arrowParens: 'avoid',
-  
+
   // 換行設定
   endOfLine: 'lf',
-  
+
   // HTML 設定
   htmlWhitespaceSensitivity: 'css',
-  
+
   // SCSS/CSS 設定
   singleAttributePerLine: false,
-  
+
   // 檔案類型覆蓋設定
   overrides: [
     {

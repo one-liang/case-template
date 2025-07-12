@@ -31,49 +31,58 @@ class NavigationManager {
   // 綁定事件監聽器
   bindEvents() {
     // 漢堡選單切換
-    this.navToggler?.addEventListener('click', this.handleToggleMenu.bind(this));
-    
+    this.navToggler?.addEventListener(
+      'click',
+      this.handleToggleMenu.bind(this)
+    );
+
     // 導航連結點擊
     this.navLinks.forEach(link => {
       link.addEventListener('click', this.handleLinkClick.bind(this));
     });
-    
+
     // 視窗調整大小
-    window.addEventListener('resize', this.debounce(this.handleResize.bind(this), 250));
-    
+    window.addEventListener(
+      'resize',
+      this.debounce(this.handleResize.bind(this), 250)
+    );
+
     // 點擊外部關閉選單
     document.addEventListener('click', this.handleOutsideClick.bind(this));
-    
+
     // 回到頂部按鈕
-    this.backToTopBtn?.addEventListener('click', this.handleBackToTop.bind(this));
+    this.backToTopBtn?.addEventListener(
+      'click',
+      this.handleBackToTop.bind(this)
+    );
   }
 
   // 處理選單切換
   handleToggleMenu(event) {
     event.preventDefault();
     event.stopPropagation();
-    
+
     this.isMenuOpen = !this.isMenuOpen;
-    
+
     // 更新 ARIA 狀態
     this.navToggler.setAttribute('aria-expanded', this.isMenuOpen);
-    
+
     // 切換選單狀態
     this.navMenu.classList.toggle('is-open', this.isMenuOpen);
-    
+
     // 切換漢堡選單動畫
     this.navToggler.classList.toggle('is-active', this.isMenuOpen);
-    
+
     // 防止背景滾動
     document.body.classList.toggle('u-no-scroll', this.isMenuOpen);
-    
+
     // 管理焦點
     if (this.isMenuOpen) {
       this.trapFocus();
     } else {
       this.releaseFocus();
     }
-    
+
     // 觸發自訂事件
     this.dispatchCustomEvent('navigationToggle', { isOpen: this.isMenuOpen });
   }
@@ -82,18 +91,18 @@ class NavigationManager {
   handleLinkClick(event) {
     const link = event.currentTarget;
     const href = link.getAttribute('href');
-    
+
     // 如果是錨點連結，實施平滑滾動
     if (href?.startsWith('#')) {
       event.preventDefault();
       this.smoothScrollToAnchor(href);
     }
-    
+
     // 在行動裝置上關閉選單
     if (this.isMenuOpen) {
       this.closeMenu();
     }
-    
+
     // 更新活躍狀態
     this.updateActiveState(link);
   }
@@ -101,29 +110,33 @@ class NavigationManager {
   // 平滑滾動到錨點
   smoothScrollToAnchor(anchor) {
     const targetElement = document.querySelector(anchor);
-    
-    if (!targetElement) return;
-    
+
+    if (!targetElement) {return;}
+
     const navHeight = this.navbar?.offsetHeight || 0;
     const offsetTop = targetElement.offsetTop - navHeight - 20;
-    
+
     window.scrollTo({
       top: offsetTop,
       behavior: 'smooth'
     });
-    
+
     // 設置焦點到目標元素（無障礙設計）
     targetElement.setAttribute('tabindex', '-1');
     targetElement.focus();
-    targetElement.addEventListener('blur', () => {
-      targetElement.removeAttribute('tabindex');
-    }, { once: true });
+    targetElement.addEventListener(
+      'blur',
+      () => {
+        targetElement.removeAttribute('tabindex');
+      },
+      { once: true }
+    );
   }
 
   // 初始化滾動行為
   initScrollBehavior() {
     let ticking = false;
-    
+
     const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
@@ -134,17 +147,17 @@ class NavigationManager {
         ticking = true;
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
   }
 
   // 滾動時更新導航列
   updateNavbarOnScroll() {
-    if (!this.navbar) return;
-    
+    if (!this.navbar) {return;}
+
     const scrollTop = window.pageYOffset;
     const threshold = 100;
-    
+
     if (scrollTop > threshold) {
       this.navbar.classList.add('c-navigation--scrolled');
     } else {
@@ -154,11 +167,11 @@ class NavigationManager {
 
   // 更新回到頂部按鈕
   updateBackToTopButton() {
-    if (!this.backToTopBtn) return;
-    
+    if (!this.backToTopBtn) {return;}
+
     const scrollTop = window.pageYOffset;
     const threshold = 300;
-    
+
     if (scrollTop > threshold) {
       this.backToTopBtn.classList.add('is-visible');
     } else {
@@ -169,35 +182,40 @@ class NavigationManager {
   // 回到頂部
   handleBackToTop(event) {
     event.preventDefault();
-    
+
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
-    
+
     // 設置焦點到主要內容區域
-    const main = document.querySelector('main') || document.querySelector('.l-main');
+    const main =
+      document.querySelector('main') || document.querySelector('.l-main');
     if (main) {
       main.setAttribute('tabindex', '-1');
       main.focus();
-      main.addEventListener('blur', () => {
-        main.removeAttribute('tabindex');
-      }, { once: true });
+      main.addEventListener(
+        'blur',
+        () => {
+          main.removeAttribute('tabindex');
+        },
+        { once: true }
+      );
     }
   }
 
   // 初始化鍵盤導航
   initKeyboardNavigation() {
     // ESC 鍵關閉選單
-    document.addEventListener('keydown', (event) => {
+    document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && this.isMenuOpen) {
         this.closeMenu();
         this.navToggler.focus();
       }
     });
-    
+
     // Tab 鍵循環焦點
-    this.navMenu?.addEventListener('keydown', (event) => {
+    this.navMenu?.addEventListener('keydown', event => {
       if (event.key === 'Tab' && this.isMenuOpen) {
         this.handleTabNavigation(event);
       }
@@ -209,10 +227,10 @@ class NavigationManager {
     const focusableElements = this.navMenu.querySelectorAll(
       'a[href], button:not([disabled]), input:not([disabled]), [tabindex="0"]'
     );
-    
+
     const firstElement = focusableElements[0];
     const lastElement = focusableElements[focusableElements.length - 1];
-    
+
     if (event.shiftKey && document.activeElement === firstElement) {
       event.preventDefault();
       lastElement.focus();
@@ -224,7 +242,9 @@ class NavigationManager {
 
   // 鎖定焦點在選單內
   trapFocus() {
-    const firstFocusable = this.navMenu.querySelector('a[href], button:not([disabled])');
+    const firstFocusable = this.navMenu.querySelector(
+      'a[href], button:not([disabled])'
+    );
     firstFocusable?.focus();
   }
 
@@ -261,10 +281,10 @@ class NavigationManager {
   handleActiveState() {
     // 根據當前 URL 設置活躍狀態
     const currentPath = window.location.pathname;
-    
+
     this.navLinks.forEach(link => {
       const linkPath = new URL(link.href).pathname;
-      
+
       if (linkPath === currentPath) {
         this.updateActiveState(link);
       }
@@ -278,7 +298,7 @@ class NavigationManager {
       link.classList.remove('is-active');
       link.removeAttribute('aria-current');
     });
-    
+
     // 設置新的活躍狀態
     activeLink.classList.add('is-active');
     activeLink.setAttribute('aria-current', 'page');
@@ -291,7 +311,7 @@ class NavigationManager {
       bubbles: true,
       cancelable: true
     });
-    
+
     document.dispatchEvent(event);
   }
 
@@ -312,8 +332,11 @@ class NavigationManager {
   getState() {
     return {
       isMenuOpen: this.isMenuOpen,
-      isScrolled: this.navbar?.classList.contains('c-navigation--scrolled') || false,
-      activeLink: this.navMenu?.querySelector('.c-navigation__link.is-active')?.href || null
+      isScrolled:
+        this.navbar?.classList.contains('c-navigation--scrolled') || false,
+      activeLink:
+        this.navMenu?.querySelector('.c-navigation__link.is-active')?.href ||
+        null
     };
   }
 
@@ -324,11 +347,11 @@ class NavigationManager {
     this.navLinks.forEach(link => {
       link.removeEventListener('click', this.handleLinkClick);
     });
-    
+
     // 重置狀態
     this.closeMenu();
     document.body.classList.remove('u-no-scroll');
-    
+
     console.log('NavigationManager destroyed');
   }
 }

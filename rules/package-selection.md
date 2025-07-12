@@ -3,6 +3,7 @@
 ## 核心原則
 
 ### 必須遵循 (MUST)
+
 - 同類型功能統一使用相同套件
 - 優先選擇有活躍社群支援的套件
 - 考慮檔案大小和執行效率
@@ -10,12 +11,14 @@
 - 選擇文檔完整的套件
 
 ### 禁止 (MUST NOT)
+
 - 使用過時或已停止維護的套件
 - 同時引入功能重複的套件
 - 使用檔案過大且功能單一的套件
 - 引入有安全漏洞的套件版本
 
 ### 建議 (SHOULD)
+
 - 使用 CDN 進行開發，本地化用於正式環境
 - 指定特定版本避免自動更新問題
 - 使用 defer 或 async 屬性優化載入
@@ -26,9 +29,10 @@
 ### 🎠 輪播/橫幅套件
 
 #### 主要推薦：Swiper
+
 ```html
 <!-- CDN 引入 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 ```
 
@@ -40,36 +44,37 @@ const swiper = new Swiper('.swiper', {
   loop: true,
   autoplay: {
     delay: 3000,
-    disableOnInteraction: false,
+    disableOnInteraction: false
   },
-  
+
   // 分頁
   pagination: {
     el: '.swiper-pagination',
-    clickable: true,
+    clickable: true
   },
-  
+
   // 導航
   navigation: {
     nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    prevEl: '.swiper-button-prev'
   },
-  
+
   // 響應式設定
   breakpoints: {
     768: {
       slidesPerView: 2,
-      spaceBetween: 20,
+      spaceBetween: 20
     },
     1024: {
       slidesPerView: 3,
-      spaceBetween: 30,
-    },
-  },
+      spaceBetween: 30
+    }
+  }
 });
 ```
 
 **使用場景：**
+
 - 主視覺輪播
 - 產品展示輪播
 - 圖片畫廊
@@ -78,6 +83,7 @@ const swiper = new Swiper('.swiper', {
 ### 🖼️ 燈箱/圖片檢視套件
 
 #### 主要推薦：Fslightbox
+
 ```html
 <!-- CDN 引入 -->
 <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.js"></script>
@@ -92,15 +98,12 @@ const swiper = new Swiper('.swiper', {
 
 // 進階程式化控制
 const lightbox = new FsLightbox();
-lightbox.props.sources = [
-  'image1.jpg',
-  'image2.jpg',
-  'https://www.youtube.com/watch?v=VIDEO_ID'
-];
+lightbox.props.sources = ['image1.jpg', 'image2.jpg', 'https://www.youtube.com/watch?v=VIDEO_ID'];
 lightbox.open();
 ```
 
 **使用場景：**
+
 - 圖片畫廊
 - 產品詳細檢視
 - 影片播放
@@ -109,6 +112,7 @@ lightbox.open();
 ### ⚠️ 彈窗/提示套件
 
 #### 主要推薦：SweetAlert (v1)
+
 ```html
 <!-- 重要：使用第一版，不要使用 SweetAlert2 -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -116,27 +120,25 @@ lightbox.open();
 
 ```javascript
 // ✅ 基本提示
-swal("成功", "操作已完成！", "success");
+swal('成功', '操作已完成！', 'success');
 
 // ✅ 確認對話框
 swal({
-  title: "確定要刪除嗎？",
-  text: "刪除後將無法復原！",
-  icon: "warning",
-  buttons: ["取消", "確定"],
-  dangerMode: true,
-})
-.then((willDelete) => {
+  title: '確定要刪除嗎？',
+  text: '刪除後將無法復原！',
+  icon: 'warning',
+  buttons: ['取消', '確定'],
+  dangerMode: true
+}).then(willDelete => {
   if (willDelete) {
-    swal("已刪除！", "資料已成功刪除", "success");
+    swal('已刪除！', '資料已成功刪除', 'success');
   }
 });
 
 // ✅ 輸入框
-swal("請輸入您的姓名:", {
-  content: "input",
-})
-.then((value) => {
+swal('請輸入您的姓名:', {
+  content: 'input'
+}).then(value => {
   if (value) {
     swal(`您好，${value}！`);
   }
@@ -144,6 +146,7 @@ swal("請輸入您的姓名:", {
 ```
 
 **使用場景：**
+
 - 操作確認
 - 成功/錯誤訊息
 - 簡單輸入表單
@@ -152,38 +155,40 @@ swal("請輸入您的姓名:", {
 ### 📅 日期選擇器套件
 
 #### 主要推薦：Flatpickr
+
 ```html
 <!-- CDN 引入 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 ```
 
 ```javascript
 // ✅ 基本日期選擇器
-flatpickr("#datePicker", {
-  dateFormat: "Y-m-d",
-  locale: "zh_tw",
-  defaultDate: "today",
-  minDate: "today"
+flatpickr('#datePicker', {
+  dateFormat: 'Y-m-d',
+  locale: 'zh_tw',
+  defaultDate: 'today',
+  minDate: 'today'
 });
 
 // ✅ 日期時間選擇器
-flatpickr("#dateTimePicker", {
+flatpickr('#dateTimePicker', {
   enableTime: true,
-  dateFormat: "Y-m-d H:i",
+  dateFormat: 'Y-m-d H:i',
   time_24hr: true
 });
 
 // ✅ 日期範圍選擇器
-flatpickr("#dateRangePicker", {
-  mode: "range",
-  dateFormat: "Y-m-d",
-  minDate: "today",
+flatpickr('#dateRangePicker', {
+  mode: 'range',
+  dateFormat: 'Y-m-d',
+  minDate: 'today',
   maxDate: new Date().fp_incr(90) // 90天後
 });
 ```
 
 **使用場景：**
+
 - 表單日期輸入
 - 預訂系統
 - 活動日期選擇
@@ -192,9 +197,13 @@ flatpickr("#dateRangePicker", {
 ### 📋 下拉選單美化套件
 
 #### 主要推薦：TomSelect
+
 ```html
 <!-- CDN 引入 -->
-<link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+<link
+  href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css"
+  rel="stylesheet"
+/>
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
 ```
 
@@ -203,8 +212,8 @@ flatpickr("#dateRangePicker", {
 new TomSelect('#select-country', {
   create: false,
   sortField: {
-    field: "text",
-    direction: "asc"
+    field: 'text',
+    direction: 'asc'
   }
 });
 
@@ -223,9 +232,9 @@ new TomSelect('#select-users', {
   labelField: 'name',
   searchField: 'name',
   placeholder: '搜尋用戶...',
-  load: function(query, callback) {
+  load: function (query, callback) {
     if (!query.length) return callback();
-    
+
     fetch(`/api/users/search?q=${encodeURIComponent(query)}`)
       .then(response => response.json())
       .then(data => callback(data))
@@ -235,6 +244,7 @@ new TomSelect('#select-users', {
 ```
 
 **使用場景：**
+
 - 單選/多選下拉
 - 標籤輸入
 - 搜尋式選單
@@ -243,9 +253,10 @@ new TomSelect('#select-users', {
 ### ✨ 動畫特效套件
 
 #### 主要推薦：AOS (Animate On Scroll)
+
 ```html
 <!-- CDN 引入 -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 ```
 
@@ -266,9 +277,13 @@ AOS.init({
 ```
 
 #### 替代方案：WOW.js + Animate.css
+
 ```html
 <!-- 如果 AOS 無法滿足需求時使用 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 ```
 
@@ -287,6 +302,7 @@ new WOW({
 ```
 
 **使用場景：**
+
 - 滾動觸發動畫
 - 元素進場效果
 - 頁面載入動畫
@@ -295,6 +311,7 @@ new WOW({
 ### 📝 富文本編輯器套件
 
 #### 主要推薦：TinyMCE
+
 ```html
 <!-- CDN 引入 (需要 API Key) -->
 <script src="https://cdn.tiny.cloud/1/YOUR_API_KEY/tinymce/6/tinymce.min.js"></script>
@@ -308,19 +325,36 @@ tinymce.init({
   menubar: false,
   language: 'zh_TW',
   plugins: [
-    'advlist', 'autolink', 'lists', 'link', 'image', 'charmap',
-    'preview', 'anchor', 'searchreplace', 'visualblocks', 'code',
-    'fullscreen', 'insertdatetime', 'media', 'table', 'help', 'wordcount'
+    'advlist',
+    'autolink',
+    'lists',
+    'link',
+    'image',
+    'charmap',
+    'preview',
+    'anchor',
+    'searchreplace',
+    'visualblocks',
+    'code',
+    'fullscreen',
+    'insertdatetime',
+    'media',
+    'table',
+    'help',
+    'wordcount'
   ],
-  toolbar: 'undo redo | blocks | ' +
+  toolbar:
+    'undo redo | blocks | ' +
     'bold italic forecolor | alignleft aligncenter ' +
     'alignright alignjustify | bullist numlist outdent indent | ' +
     'removeformat | help',
-  content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 14px; }'
+  content_style:
+    'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 14px; }'
 });
 ```
 
 **使用場景：**
+
 - 內容管理系統
 - 部落格編輯器
 - 文章撰寫
@@ -329,6 +363,7 @@ tinymce.init({
 ### 🔄 拖拉排序套件
 
 #### 主要推薦：SortableJS
+
 ```html
 <!-- CDN 引入 -->
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
@@ -341,9 +376,9 @@ const sortable = Sortable.create(document.getElementById('sortable-list'), {
   ghostClass: 'sortable-ghost',
   chosenClass: 'sortable-chosen',
   dragClass: 'sortable-drag',
-  
+
   // 事件處理
-  onEnd: function(evt) {
+  onEnd: function (evt) {
     console.log('項目從位置', evt.oldIndex, '移動到位置', evt.newIndex);
     // 更新後端數據
     updateSortOrder(evt.oldIndex, evt.newIndex);
@@ -363,6 +398,7 @@ Sortable.create(document.getElementById('list2'), {
 ```
 
 **使用場景：**
+
 - 清單項目排序
 - 看板系統
 - 圖片排序
@@ -371,6 +407,7 @@ Sortable.create(document.getElementById('list2'), {
 ### 🌐 AJAX 請求套件
 
 #### 主要推薦：Axios
+
 ```html
 <!-- CDN 引入 -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -412,7 +449,7 @@ apiClient.interceptors.response.use(
 );
 
 // ✅ API 調用範例
-const fetchUserData = async (userId) => {
+const fetchUserData = async userId => {
   try {
     const response = await apiClient.get(`/users/${userId}`);
     return response.data;
@@ -422,7 +459,7 @@ const fetchUserData = async (userId) => {
   }
 };
 
-const createUser = async (userData) => {
+const createUser = async userData => {
   try {
     const response = await apiClient.post('/users', userData);
     return response.data;
@@ -434,6 +471,7 @@ const createUser = async (userData) => {
 ```
 
 **使用場景：**
+
 - API 資料請求
 - 表單提交
 - 檔案上傳
@@ -458,12 +496,17 @@ const createUser = async (userData) => {
 <script src="vendor/swiper.min.js" defer></script>
 
 <!-- 預載重要資源 -->
-<link rel="preload" href="vendor/swiper.css" as="style">
-<link rel="preload" href="vendor/swiper.js" as="script">
+<link rel="preload" href="vendor/swiper.css" as="style" />
+<link rel="preload" href="vendor/swiper.js" as="script" />
 
 <!-- 關鍵 CSS 優先載入 -->
-<link rel="stylesheet" href="critical.css">
-<link rel="preload" href="non-critical.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="critical.css" />
+<link
+  rel="preload"
+  href="non-critical.css"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+/>
 ```
 
 ### ✅ 回退方案
@@ -473,7 +516,7 @@ const createUser = async (userData) => {
 const checkLibraryAndFallback = (libraryName, fallbackUrl, callback) => {
   if (typeof window[libraryName] === 'undefined') {
     console.warn(`${libraryName} 套件載入失敗，載入備用版本`);
-    
+
     const script = document.createElement('script');
     script.src = fallbackUrl;
     script.onload = callback;
@@ -487,14 +530,12 @@ const checkLibraryAndFallback = (libraryName, fallbackUrl, callback) => {
 };
 
 // 使用範例
-checkLibraryAndFallback(
-  'Swiper',
-  '/local/swiper.min.js',
-  () => {
-    // 初始化 Swiper
-    new Swiper('.swiper', { /* 配置 */ });
-  }
-);
+checkLibraryAndFallback('Swiper', '/local/swiper.min.js', () => {
+  // 初始化 Swiper
+  new Swiper('.swiper', {
+    /* 配置 */
+  });
+});
 ```
 
 ### ✅ 條件載入
@@ -512,7 +553,7 @@ const loadLibraryIfNeeded = async (condition, libUrl, libName) => {
   }
 };
 
-const loadScript = (url) => {
+const loadScript = url => {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.src = url;
@@ -531,15 +572,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
     'Swiper'
   );
-  
+
   // 只在有日期輸入時載入 Flatpickr
   const hasDatePicker = document.querySelector('[data-flatpickr]');
-  await loadLibraryIfNeeded(
-    hasDatePicker,
-    'https://cdn.jsdelivr.net/npm/flatpickr',
-    'flatpickr'
-  );
-  
+  await loadLibraryIfNeeded(hasDatePicker, 'https://cdn.jsdelivr.net/npm/flatpickr', 'flatpickr');
+
   // 初始化所有組件
   initializeComponents();
 });
@@ -552,38 +589,44 @@ document.addEventListener('DOMContentLoaded', async () => {
 ```html
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>套件整合範例</title>
-  
-  <!-- CSS 套件 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
-  <!-- 自訂樣式 -->
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-  <!-- 頁面內容 -->
-  
-  <!-- JavaScript 套件 -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.js"></script>
-  
-  <!-- 自訂腳本 -->
-  <script src="assets/js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>套件整合範例</title>
+
+    <!-- CSS 套件 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- 自訂樣式 -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- 頁面內容 -->
+
+    <!-- JavaScript 套件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.js"></script>
+
+    <!-- 自訂腳本 -->
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
 ```
 
@@ -593,7 +636,7 @@ class ComponentManager {
   constructor() {
     this.components = [];
   }
-  
+
   async init() {
     try {
       // 初始化各種組件
@@ -603,13 +646,13 @@ class ComponentManager {
       this.initAOS();
       this.initSortable();
       this.setupEventHandlers();
-      
+
       console.log('所有組件初始化完成');
     } catch (error) {
       console.error('組件初始化失敗:', error);
     }
   }
-  
+
   initSwiper() {
     const swiperElements = document.querySelectorAll('.swiper');
     swiperElements.forEach(element => {
@@ -619,26 +662,26 @@ class ComponentManager {
         pagination: { el: '.swiper-pagination', clickable: true },
         navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
+          prevEl: '.swiper-button-prev'
+        }
       });
       this.components.push(swiper);
     });
   }
-  
+
   initFlatpickr() {
     const dateInputs = document.querySelectorAll('[data-flatpickr]');
     dateInputs.forEach(input => {
       const config = JSON.parse(input.dataset.flatpickr || '{}');
       const fp = flatpickr(input, {
-        dateFormat: "Y-m-d",
-        locale: "zh_tw",
+        dateFormat: 'Y-m-d',
+        locale: 'zh_tw',
         ...config
       });
       this.components.push(fp);
     });
   }
-  
+
   initTomSelect() {
     const selectElements = document.querySelectorAll('[data-tom-select]');
     selectElements.forEach(select => {
@@ -650,7 +693,7 @@ class ComponentManager {
       this.components.push(ts);
     });
   }
-  
+
   initAOS() {
     AOS.init({
       duration: 800,
@@ -659,55 +702,55 @@ class ComponentManager {
       mirror: false
     });
   }
-  
+
   initSortable() {
     const sortableElements = document.querySelectorAll('[data-sortable]');
     sortableElements.forEach(element => {
       const sortable = Sortable.create(element, {
         animation: 150,
         ghostClass: 'sortable-ghost',
-        onEnd: (evt) => {
+        onEnd: evt => {
           console.log('排序變更:', evt.oldIndex, '->', evt.newIndex);
         }
       });
       this.components.push(sortable);
     });
   }
-  
+
   setupEventHandlers() {
     // 統一事件處理
     document.addEventListener('click', this.handleClick.bind(this));
   }
-  
+
   handleClick(event) {
     const target = event.target;
-    
+
     // SweetAlert 提示
     if (target.matches('[data-swal]')) {
       event.preventDefault();
       const config = JSON.parse(target.dataset.swal);
       swal(config);
     }
-    
+
     // AJAX 請求
     if (target.matches('[data-ajax]')) {
       event.preventDefault();
       this.handleAjaxClick(target);
     }
   }
-  
+
   async handleAjaxClick(element) {
     const url = element.dataset.url;
     const method = element.dataset.method || 'GET';
-    
+
     try {
       const response = await axios({ method, url });
-      swal("成功", "操作完成", "success");
+      swal('成功', '操作完成', 'success');
     } catch (error) {
-      swal("錯誤", "操作失敗", "error");
+      swal('錯誤', '操作失敗', 'error');
     }
   }
-  
+
   destroy() {
     // 清理所有組件
     this.components.forEach(component => {
@@ -723,7 +766,7 @@ class ComponentManager {
 document.addEventListener('DOMContentLoaded', () => {
   const manager = new ComponentManager();
   manager.init();
-  
+
   // 將管理器暴露到全域作用域供調試使用
   window.componentManager = manager;
 });
@@ -732,6 +775,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ## 程式碼品質檢查
 
 ### 套件使用檢查清單
+
 - [ ] 使用推薦的官方套件版本
 - [ ] 指定特定版本號避免自動更新
 - [ ] 實作套件載入失敗的回退方案
@@ -743,4 +787,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ---
 
-*遵循這些套件選用規範能確保專案的穩定性、效能和維護性* 
+_遵循這些套件選用規範能確保專案的穩定性、效能和維護性_

@@ -3,6 +3,7 @@
 ## 核心原則
 
 ### 必須遵循 (MUST)
+
 - 使用 Bootstrap 5.3+ 作為基礎框架
 - 採用 SCSS 作為 CSS 預處理器
 - JavaScript 使用 ES2020+ 語法
@@ -10,6 +11,7 @@
 - 實作無障礙設計 (a11y)
 
 ### 禁止 (MUST NOT)
+
 - 使用過時的前端框架或語法
 - 忽略行動裝置適配
 - 缺少無障礙設計考量
@@ -17,6 +19,7 @@
 - 忽略效能優化
 
 ### 建議 (SHOULD)
+
 - 使用靜態網站產生器 (SSG)
 - 採用漸進式增強策略
 - 實作適當的 SEO 優化
@@ -28,6 +31,7 @@
 ### 🎨 前端技術棧
 
 #### 必要技術
+
 ```yaml
 CSS框架: Bootstrap 5.3+
 CSS預處理: SCSS/Sass
@@ -37,6 +41,7 @@ JavaScript: ES2020+ (原生JS優先)
 ```
 
 #### 推薦技術
+
 ```yaml
 建置工具: Vite, Webpack, 或 Parcel
 版本控制: Git
@@ -93,6 +98,7 @@ project-name/
 ```
 
 ### 開發階段與生產階段的檔案
+
 - 開發階段用 html or vue, scss, bootstrap 5.3+, javascript 來開發
 - 開發階段有共用的區塊可以用組件方式不重複
 - 最後生產階段用 html, css, javascript 沒有壓縮過的版本，圖片也是
@@ -102,18 +108,23 @@ project-name/
 ### 📋 Step 1: Design System 建立
 
 #### 必要建立項目
+
 ```scss
 // 1. 色彩系統
 $primary: #your-brand-color;
 $secondary: #your-secondary-color;
 $theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "brand": #custom-brand-color
+  'primary': $primary,
+  'secondary': $secondary,
+  'brand': #custom-brand-color
 );
 
 // 2. 字體系統
-$font-family-base: "Your-Font", -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-base:
+  'Your-Font',
+  -apple-system,
+  BlinkMacSystemFont,
+  sans-serif;
 $h1-font-size: 2.5rem;
 $h2-font-size: 2rem;
 
@@ -140,6 +151,7 @@ $grid-breakpoints: (
 ```
 
 #### 組件庫建立
+
 ```html
 <!-- 按鈕組件 -->
 <button class="btn btn-primary">主要按鈕</button>
@@ -156,7 +168,7 @@ $grid-breakpoints: (
 <!-- 表單組件 -->
 <div class="mb-3">
   <label for="email" class="form-label">電子郵件</label>
-  <input type="email" class="form-control" id="email" required>
+  <input type="email" class="form-control" id="email" required />
   <div class="invalid-feedback">請輸入有效的電子郵件</div>
 </div>
 ```
@@ -164,58 +176,60 @@ $grid-breakpoints: (
 ### 🏠 Step 2: 首頁製作
 
 #### 首頁必要區塊
+
 ```html
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="網站描述，限制在 160 字元內">
-  <title>首頁標題 - 網站名稱</title>
-  
-  <!-- SEO 優化 -->
-  <meta property="og:title" content="首頁標題">
-  <meta property="og:description" content="網站描述">
-  <meta property="og:image" content="/images/og-image.jpg">
-  
-  <!-- 樣式 -->
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-  <!-- 跳轉連結 (無障礙) -->
-  <a href="#main-content" class="visually-hidden-focusable">跳轉到主要內容</a>
-  
-  <!-- 導航 -->
-  <nav class="navbar navbar-expand-lg">
-    <!-- 導航內容 -->
-  </nav>
-  
-  <!-- 主要內容 -->
-  <main id="main-content">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container">
-        <h1>主要標題</h1>
-        <p class="lead">描述文字</p>
-        <a href="#cta" class="btn btn-primary btn-lg">行動按鈕</a>
-      </div>
-    </section>
-    
-    <!-- 其他區塊 -->
-  </main>
-  
-  <!-- 頁尾 -->
-  <footer class="bg-dark text-light">
-    <!-- 頁尾內容 -->
-  </footer>
-  
-  <!-- 腳本 -->
-  <script src="/assets/js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="網站描述，限制在 160 字元內" />
+    <title>首頁標題 - 網站名稱</title>
+
+    <!-- SEO 優化 -->
+    <meta property="og:title" content="首頁標題" />
+    <meta property="og:description" content="網站描述" />
+    <meta property="og:image" content="/images/og-image.jpg" />
+
+    <!-- 樣式 -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+    <!-- 跳轉連結 (無障礙) -->
+    <a href="#main-content" class="visually-hidden-focusable">跳轉到主要內容</a>
+
+    <!-- 導航 -->
+    <nav class="navbar navbar-expand-lg">
+      <!-- 導航內容 -->
+    </nav>
+
+    <!-- 主要內容 -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="container">
+          <h1>主要標題</h1>
+          <p class="lead">描述文字</p>
+          <a href="#cta" class="btn btn-primary btn-lg">行動按鈕</a>
+        </div>
+      </section>
+
+      <!-- 其他區塊 -->
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-dark text-light">
+      <!-- 頁尾內容 -->
+    </footer>
+
+    <!-- 腳本 -->
+    <script src="/assets/js/main.js"></script>
+  </body>
 </html>
 ```
 
 #### 首頁品質標準
+
 - [ ] 載入時間 < 3 秒
 - [ ] Lighthouse 分數 > 90
 - [ ] 所有圖片使用 alt 屬性
@@ -225,6 +239,7 @@ $grid-breakpoints: (
 ### 📄 Step 3: 內頁製作
 
 #### 內頁模板結構
+
 ```html
 <!-- 內頁模板 -->
 <main id="main-content">
@@ -241,7 +256,7 @@ $grid-breakpoints: (
       <p class="lead">頁面描述</p>
     </div>
   </section>
-  
+
   <!-- 內容區 -->
   <section class="py-5">
     <div class="container">
@@ -271,6 +286,7 @@ $grid-breakpoints: (
 ```
 
 #### 內頁必要元素
+
 - [ ] 正確的 HTML5 語意標籤
 - [ ] 適當的標題層次 (h1-h6)
 - [ ] 完整的 breadcrumb 導航
@@ -280,6 +296,7 @@ $grid-breakpoints: (
 ### 📦 Step 4: 交件準備
 
 #### 程式碼品質檢查
+
 ```bash
 # HTML 驗證
 npx html-validate "**/*.html"
@@ -298,6 +315,7 @@ npx lighthouse "http://localhost:3000" --output=html
 ```
 
 #### 最終交件清單
+
 - [ ] 所有頁面功能正常運作
 - [ ] 響應式設計在各裝置完整測試
 - [ ] 程式碼已格式化且無語法錯誤
@@ -369,9 +387,9 @@ script.js
 <a href="/products/web-design">網站設計</a>
 
 <!-- 資源連結 -->
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css" />
 <script src="/assets/js/main.js"></script>
-<img src="/assets/images/logo.png" alt="公司標誌">
+<img src="/assets/images/logo.png" alt="公司標誌" />
 ```
 
 ### ❌ 避免的連結寫法
@@ -392,20 +410,22 @@ script.js
 ```html
 <!-- 圖片最佳化 -->
 <picture>
-  <source srcset="hero.avif" type="image/avif">
-  <source srcset="hero.webp" type="image/webp">
-  <img src="hero.jpg" alt="主視覺圖片" 
-       width="1200" height="600"
-       loading="lazy">
+  <source srcset="hero.avif" type="image/avif" />
+  <source srcset="hero.webp" type="image/webp" />
+  <img src="hero.jpg" alt="主視覺圖片" width="1200" height="600" loading="lazy" />
 </picture>
 
 <!-- 資源預載 -->
-<link rel="preload" href="/assets/fonts/main-font.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/css/critical.css" as="style">
+<link rel="preload" href="/assets/fonts/main-font.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/css/critical.css" as="style" />
 
 <!-- 延遲載入非關鍵資源 -->
-<link rel="preload" href="/assets/css/non-critical.css" as="style" 
-      onload="this.onload=null;this.rel='stylesheet'">
+<link
+  rel="preload"
+  href="/assets/css/non-critical.css"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+/>
 
 <!-- JavaScript 優化載入 -->
 <script src="/assets/js/critical.js"></script>
@@ -457,12 +477,12 @@ Lighthouse 分數:
 
 <!-- 表單無障礙 -->
 <label for="email">電子郵件 <span aria-label="必填">*</span></label>
-<input type="email" id="email" aria-required="true" aria-describedby="email-help">
+<input type="email" id="email" aria-required="true" aria-describedby="email-help" />
 <div id="email-help">請輸入有效的電子郵件格式</div>
 
 <!-- 圖片替代文字 -->
-<img src="chart.png" alt="2024年銷售成長圖表，顯示第四季成長15%">
-<img src="decoration.png" alt="" role="presentation">
+<img src="chart.png" alt="2024年銷售成長圖表，顯示第四季成長15%" />
+<img src="decoration.png" alt="" role="presentation" />
 ```
 
 ### 🔍 無障礙測試工具
@@ -484,6 +504,7 @@ npx axe-cli http://localhost:3000
 ### ✅ 交件前檢查清單
 
 #### 功能檢查
+
 - [ ] 所有連結可正常點擊
 - [ ] 表單提交功能正常
 - [ ] 圖片載入正常
@@ -491,6 +512,7 @@ npx axe-cli http://localhost:3000
 - [ ] 購物車/搜尋等特殊功能運作
 
 #### 相容性檢查
+
 - [ ] Chrome (最新版本)
 - [ ] Firefox (最新版本)
 - [ ] Safari (最新版本)
@@ -498,18 +520,21 @@ npx axe-cli http://localhost:3000
 - [ ] 行動版瀏覽器 (iOS Safari, Android Chrome)
 
 #### 響應式檢查
+
 - [ ] 手機 (320px-767px)
 - [ ] 平板 (768px-1023px)
 - [ ] 桌機 (1024px 以上)
 - [ ] 大螢幕 (1400px 以上)
 
 #### 效能檢查
+
 - [ ] 首頁載入時間 < 3 秒
 - [ ] 圖片優化完成
 - [ ] CSS/JS 檔案已壓縮
 - [ ] 無多餘的請求
 
 #### 內容檢查
+
 - [ ] 無錯字或語法錯誤
 - [ ] 所有圖片有適當 alt 文字
 - [ ] 聯絡資訊正確
@@ -520,9 +545,10 @@ npx axe-cli http://localhost:3000
 ### 🚀 建議的部署方案
 
 #### 靜態網站託管 (推薦)
+
 ```yaml
 # 適合一般展示型網站
-Vercel: 
+Vercel:
   - 優點: 自動部署, CDN, 免費方案
   - 適用: Vue, 靜態網站
 
@@ -540,6 +566,7 @@ Cloudflare Pages:
 ```
 
 #### 傳統主機託管
+
 ```yaml
 # 適合需要後端功能的網站
 VPS 主機:
@@ -554,6 +581,7 @@ VPS 主機:
 ### 📋 維護計畫建議
 
 #### 定期維護項目
+
 ```yaml
 每月:
   - 檢查網站功能正常
@@ -579,63 +607,78 @@ VPS 主機:
 ### 📖 必要文檔
 
 #### README.md
+
 ```markdown
 # 專案名稱
 
 ## 專案描述
+
 簡短描述專案目的和主要功能
 
 ## 技術棧
+
 - Bootstrap 5.3+
 - SCSS
 - JavaScript ES2020+
 - [其他使用的技術]
 
 ## 安裝與執行
+
 1. 克隆專案: `git clone [repository-url]`
 2. 安裝依賴: `npm install`
 3. 啟動開發伺服器: `npm run dev`
 4. 建置產品版本: `npm run build`
 
 ## 專案結構
+
 [說明主要資料夾和檔案的用途]
 
 ## 部署說明
+
 [說明如何部署到正式環境]
 
 ## 維護聯絡
+
 - 開發者: [姓名]
 - 聯絡方式: [email]
 - 最後更新: [日期]
 ```
 
 #### SETUP.md
+
 ```markdown
 # 環境設置指南
 
 ## 開發環境需求
+
 - Node.js 16+
 - npm 或 yarn
 - Git
 
 ## 本地開發設置
+
 [詳細的設置步驟]
 
 ## 常見問題
+
 [開發過程中可能遇到的問題和解決方案]
 ```
 
 #### DEPLOYMENT.md
+
 ```markdown
 # 部署指南
 
 ## 建置步驟
+
 [詳細的建置和部署步驟]
 
 ## 環境變數設定
+
 [需要設定的環境變數]
 
 ## 域名和SSL設定
+
 [域名指向和SSL憑證設定]
 ```
 
@@ -644,6 +687,7 @@ VPS 主機:
 ### 👨‍🎓 Junior 開發者指引
 
 #### 學習重點
+
 ```yaml
 第一階段 (1-3個月):
   - 熟練 HTML5 語意標籤
@@ -665,6 +709,7 @@ VPS 主機:
 ```
 
 #### 實作建議
+
 - 從模仿現有設計開始
 - 重視程式碼可讀性勝過效能
 - 多使用註解說明程式邏輯
@@ -674,6 +719,7 @@ VPS 主機:
 ### 👨‍💼 Senior 開發者期望
 
 #### 責任範圍
+
 ```yaml
 技術領導:
   - 制定技術規範和最佳實踐
@@ -695,6 +741,7 @@ VPS 主機:
 ```
 
 #### 進階技能期望
+
 - 具備全端開發能力
 - 熟悉 DevOps 和部署流程
 - 了解使用者體驗設計
@@ -703,4 +750,4 @@ VPS 主機:
 
 ---
 
-*遵循這些交付規範能確保專案品質一致且符合業界標準* 
+_遵循這些交付規範能確保專案品質一致且符合業界標準_

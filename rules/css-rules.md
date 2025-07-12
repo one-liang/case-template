@@ -3,6 +3,7 @@
 ## 核心原則
 
 ### 必須遵循 (MUST)
+
 - 統一使用 Bootstrap 5.3+ 作為基礎框架
 - 使用 SCSS 編寫所有自訂樣式
 - 修改 Bootstrap 變數而非覆蓋樣式
@@ -10,6 +11,7 @@
 - 使用現代化 Flexbox/Grid 排版
 
 ### 禁止 (MUST NOT)
+
 - 直接覆蓋 Bootstrap 樣式
 - 使用 `!important` 除非絕對必要
 - 濫用 `bg-dark` + `text-white` 組合
@@ -17,6 +19,7 @@
 - 使用過時的 float 排版
 
 ### 建議 (SHOULD)
+
 - 優先使用 Bootstrap 內建 utility classes
 - 使用 CSS 自訂屬性 (CSS Variables)
 - 保持選擇器特異性低
@@ -27,27 +30,27 @@
 ```scss
 // ✅ 正確的 SCSS 結構
 // 1. Bootstrap 變數覆蓋
-@import "variables";
+@import 'variables';
 
 // 2. Bootstrap 函式和 mixins
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
 
 // 3. 自訂 mixins
-@import "mixins";
+@import 'mixins';
 
 // 4. Bootstrap 組件選擇性載入
-@import "bootstrap/scss/bootstrap";
+@import 'bootstrap/scss/bootstrap';
 
 // 5. 自訂組件
-@import "components/header";
-@import "components/footer";
-@import "components/buttons";
+@import 'components/header';
+@import 'components/footer';
+@import 'components/buttons';
 
 // 6. 頁面特定樣式
-@import "pages/home";
-@import "pages/about";
+@import 'pages/home';
+@import 'pages/about';
 ```
 
 ## Bootstrap 變數客製化
@@ -63,15 +66,19 @@ $success: #28a745;
 
 // 添加自訂顏色
 $custom-colors: (
-  "brand": #ff6b35,
-  "accent": #4ecdc4
+  'brand': #ff6b35,
+  'accent': #4ecdc4
 );
 
 // 合併到 theme-colors
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
 // 字體設定
-$font-family-base: "Noto Sans TC", -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-base:
+  'Noto Sans TC',
+  -apple-system,
+  BlinkMacSystemFont,
+  sans-serif;
 $font-size-base: 1rem;
 $line-height-base: 1.6;
 
@@ -104,76 +111,100 @@ $grid-breakpoints: (
 ## BEM 命名規範
 
 ### 基本結構
+
 ```scss
 // Block (組件)
-.c-card { }
+.c-card {
+}
 
 // Element (元素)
-.c-card__header { }
-.c-card__body { }
-.c-card__footer { }
+.c-card__header {
+}
+.c-card__body {
+}
+.c-card__footer {
+}
 
 // Modifier (修飾符)
-.c-card--featured { }
-.c-card--large { }
-.c-card__header--transparent { }
+.c-card--featured {
+}
+.c-card--large {
+}
+.c-card__header--transparent {
+}
 ```
 
 ### Namespace 系統
+
 ```scss
 // Components (組件)
-.c-button { }
-.c-modal { }
-.c-navbar { }
+.c-button {
+}
+.c-modal {
+}
+.c-navbar {
+}
 
 // Layout (版面)
-.l-header { }
-.l-sidebar { }
-.l-main { }
+.l-header {
+}
+.l-sidebar {
+}
+.l-main {
+}
 
 // Helpers (輔助)
-.h-center { }
-.h-hidden { }
-.h-clearfix { }
+.h-center {
+}
+.h-hidden {
+}
+.h-clearfix {
+}
 
 // State (狀態)
-.is-active { }
-.is-loading { }
-.is-disabled { }
+.is-active {
+}
+.is-loading {
+}
+.is-disabled {
+}
 
 // JavaScript hooks (JS 掛鉤)
-.js-toggle { }
-.js-modal-trigger { }
+.js-toggle {
+}
+.js-modal-trigger {
+}
 ```
 
 ### 實際範例
+
 ```scss
 // ✅ 正確的 BEM 結構
 .c-product-card {
   border: 1px solid $gray-300;
   border-radius: $border-radius;
-  
+
   &__image {
     width: 100%;
     height: 200px;
     object-fit: cover;
   }
-  
+
   &__title {
     font-size: $h5-font-size;
     font-weight: $font-weight-semibold;
   }
-  
+
   &__price {
     color: $primary;
     font-weight: $font-weight-bold;
   }
-  
+
   &--featured {
     border-color: $primary;
     box-shadow: 0 4px 8px rgba($primary, 0.15);
   }
-  
+
   &--large {
     .c-product-card__image {
       height: 300px;
@@ -189,7 +220,7 @@ $grid-breakpoints: (
 ```scss
 // 正確使用 data-bs-theme
 .hero-section {
-  &[data-bs-theme="dark"] {
+  &[data-bs-theme='dark'] {
     background-color: var(--bs-dark);
     color: var(--bs-light);
   }
@@ -221,11 +252,11 @@ $grid-breakpoints: (
 // 使用 Bootstrap mixins
 .custom-component {
   padding: 1rem;
-  
+
   @include media-breakpoint-up(md) {
     padding: 2rem;
   }
-  
+
   @include media-breakpoint-up(lg) {
     padding: 3rem;
   }
@@ -234,11 +265,11 @@ $grid-breakpoints: (
 // 使用 Bootstrap 斷點變數
 .hero-title {
   font-size: 2rem;
-  
+
   @media (min-width: map-get($grid-breakpoints, md)) {
     font-size: 3rem;
   }
-  
+
   @media (min-width: map-get($grid-breakpoints, lg)) {
     font-size: 4rem;
   }
@@ -287,15 +318,18 @@ $primary-rgb: to-rgb($primary);
 
 ```html
 <!-- ❌ 過度使用 -->
-<div class="d-flex justify-content-center align-items-center flex-column bg-primary text-white p-4 mb-3 rounded shadow">
-
-<!-- ✅ 建議創建組件 -->
-<div class="c-info-card c-info-card--primary">
+<div
+  class="d-flex justify-content-center align-items-center flex-column bg-primary text-white p-4 mb-3 rounded shadow"
+>
+  <!-- ✅ 建議創建組件 -->
+  <div class="c-info-card c-info-card--primary"></div>
+</div>
 ```
 
 ## 程式碼品質檢查
 
 ### 自動檢查清單
+
 - [ ] 使用 Bootstrap 5.3+ 變數系統
 - [ ] SCSS 編譯無錯誤或警告
 - [ ] 遵循 BEM 命名規範
@@ -306,6 +340,7 @@ $primary-rgb: to-rgb($primary);
 - [ ] 程式碼格式化一致
 
 ### 手動檢查清單
+
 - [ ] 設計稿還原度高
 - [ ] 瀏覽器相容性良好
 - [ ] 無障礙設計符合 a11y 標準
@@ -315,16 +350,19 @@ $primary-rgb: to-rgb($primary);
 ## 工具建議
 
 ### 必要工具
+
 - **Sass/SCSS 編譯器** - 處理 SCSS 檔案
 - **Autoprefixer** - 自動添加瀏覽器前綴
 - **CSSnano** - CSS 壓縮優化
 
 ### 推薦工具
+
 - **Stylelint** - CSS/SCSS 語法檢查
 - **Prettier** - 程式碼格式化
 - **Browser Sync** - 即時預覽
 
 ### 編輯器設定
+
 ```json
 // .vscode/settings.json
 {
@@ -338,6 +376,7 @@ $primary-rgb: to-rgb($primary);
 ## 效能最佳化
 
 ### CSS 載入優化
+
 ```html
 <!-- 關鍵 CSS 內聯 -->
 <style>
@@ -345,23 +384,24 @@ $primary-rgb: to-rgb($primary);
 </style>
 
 <!-- 非關鍵 CSS 延遲載入 -->
-<link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 ```
 
 ### SCSS 編譯優化
+
 ```scss
 // 只載入需要的 Bootstrap 組件
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
 
 // 只載入使用的組件
-@import "bootstrap/scss/grid";
-@import "bootstrap/scss/buttons";
-@import "bootstrap/scss/navbar";
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/navbar';
 // 不載入未使用的組件
 ```
 
 ---
 
-*遵循這些 CSS/SCSS 規範能確保程式碼的品質、維護性和團隊協作效率* 
+_遵循這些 CSS/SCSS 規範能確保程式碼的品質、維護性和團隊協作效率_

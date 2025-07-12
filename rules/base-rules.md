@@ -3,6 +3,7 @@
 ## 基本原則
 
 ### 編程語言和技術棧
+
 - **CSS 框架**: 統一使用 Bootstrap 5.3+ 作為基礎框架
 - **CSS 預處理器**: 使用 SCSS 編寫所有自訂樣式
 - **JavaScript**: 使用 ES2020+ 語法特性，優先使用現代瀏覽器原生 API
@@ -10,12 +11,14 @@
 - **響應式設計**: 採用 Mobile First 策略
 
 ### 程式碼風格
+
 - 使用早期返回模式提高程式碼可讀性
 - 事件處理函數以 `handle` 前綴命名 (如: `handleClick`, `handleSubmit`)
 - 簡潔性和可讀性優先於效能優化
 - 完全實現所有請求的功能並徹底驗證
 
 ### 無障礙設計
+
 - 所有互動元素必須支援鍵盤導航
 - 適當使用 ARIA 屬性和語意標籤
 - 提供適當的 alt 文字和螢幕閱讀器支援
@@ -24,32 +27,35 @@
 ## CSS/SCSS 規範
 
 ### 必須遵循
+
 - 修改 Bootstrap 變數而非直接覆蓋樣式
 - 遵循 BEM 命名規範或 OOCSS 命名風格
 - 使用 CSS 自訂屬性 (CSS Variables)
 - 避免使用 `!important` 除非絕對必要
 
 ### SCSS 結構
+
 ```scss
 // 1. Bootstrap 變數覆蓋
-@import "variables";
+@import 'variables';
 
 // 2. Bootstrap 函式和 mixins
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
 
 // 3. 自訂 mixins
-@import "mixins";
+@import 'mixins';
 
 // 4. Bootstrap 組件
-@import "bootstrap/scss/bootstrap";
+@import 'bootstrap/scss/bootstrap';
 
 // 5. 自訂組件
-@import "components/*";
+@import 'components/*';
 ```
 
 ### BEM 命名規範
+
 - **Components**: `.c-component-name`
 - **Layout**: `.l-layout-name`
 - **Helpers**: `.h-helper-name`
@@ -59,6 +65,7 @@
 ## JavaScript 規範
 
 ### 必須遵循
+
 - 使用 `const` 和 `let`，避免 `var`
 - 優先使用箭頭函數
 - 使用模板字面量而非字符串拼接
@@ -66,15 +73,16 @@
 - 避免全域變數污染
 
 ### 事件處理
+
 ```javascript
 // ✅ 正確命名
-const handleButtonClick = (event) => {
+const handleButtonClick = event => {
   event.preventDefault();
   // 處理邏輯
 };
 
 // ✅ 事件委派
-document.addEventListener('click', (event) => {
+document.addEventListener('click', event => {
   if (event.target.matches('.js-toggle')) {
     handleToggle(event);
   }
@@ -82,17 +90,18 @@ document.addEventListener('click', (event) => {
 ```
 
 ### 模組化開發
+
 ```javascript
 // ✅ ES6 模組
 export class ComponentManager {
   constructor() {
     this.init();
   }
-  
+
   init() {
     this.bindEvents();
   }
-  
+
   bindEvents() {
     // 事件綁定
   }
@@ -102,6 +111,7 @@ export class ComponentManager {
 ## HTML 規範
 
 ### 語意化標籤
+
 ```html
 <!-- ✅ 正確結構 -->
 <main id="main-content">
@@ -119,16 +129,10 @@ export class ComponentManager {
 ```
 
 ### 無障礙屬性
+
 ```html
 <!-- ✅ 適當的 ARIA 屬性 -->
-<button 
-  type="button"
-  aria-expanded="false"
-  aria-controls="menu"
-  aria-label="切換選單"
->
-  選單
-</button>
+<button type="button" aria-expanded="false" aria-controls="menu" aria-label="切換選單">選單</button>
 
 <nav aria-label="主導航">
   <ul role="menubar">
@@ -142,6 +146,7 @@ export class ComponentManager {
 ## 套件選用規範
 
 ### 推薦套件
+
 - **輪播**: Swiper
 - **燈箱**: Fslightbox
 - **彈窗**: SweetAlert (v1)
@@ -153,6 +158,7 @@ export class ComponentManager {
 - **AJAX**: Axios
 
 ### 套件使用原則
+
 - 指定特定版本號避免自動更新
 - 實作套件載入失敗的回退方案
 - 條件式載入以優化效能
@@ -161,6 +167,7 @@ export class ComponentManager {
 ## 專案結構規範
 
 ### 標準檔案結構
+
 ```
 project/
 ├── assets/
@@ -183,22 +190,29 @@ project/
 ## 效能最佳化
 
 ### 圖片優化
+
 ```html
 <!-- ✅ 響應式圖片 -->
 <picture>
-  <source srcset="image.avif" type="image/avif">
-  <source srcset="image.webp" type="image/webp">
-  <img src="image.jpg" alt="描述" loading="lazy">
+  <source srcset="image.avif" type="image/avif" />
+  <source srcset="image.webp" type="image/webp" />
+  <img src="image.jpg" alt="描述" loading="lazy" />
 </picture>
 ```
 
 ### 資源載入
+
 ```html
 <!-- ✅ 關鍵資源預載 -->
-<link rel="preload" href="fonts/main.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/main.woff2" as="font" type="font/woff2" crossorigin />
 
 <!-- ✅ 非關鍵 CSS 延遲載入 -->
-<link rel="preload" href="non-critical.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link
+  rel="preload"
+  href="non-critical.css"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+/>
 
 <!-- ✅ JavaScript 延遲載入 -->
 <script src="main.js" defer></script>
@@ -207,6 +221,7 @@ project/
 ## 程式碼品質要求
 
 ### 自動檢查項目
+
 - HTML 語法驗證
 - CSS/SCSS 語法檢查
 - JavaScript ESLint 檢查
@@ -214,6 +229,7 @@ project/
 - 效能檢查 (Lighthouse)
 
 ### 手動檢查項目
+
 - 跨瀏覽器相容性
 - 響應式設計測試
 - 鍵盤導航測試
@@ -233,6 +249,7 @@ project/
 ```
 
 ### Commit Types
+
 - `feat`: 新功能
 - `fix`: 錯誤修復
 - `docs`: 文檔變更
@@ -242,6 +259,7 @@ project/
 - `chore`: 建置工具或輔助工具變更
 
 ### 範例
+
 ```
 feat(navigation): add mobile menu toggle functionality
 
@@ -255,17 +273,20 @@ Fixes #123
 ## 回應規範
 
 ### 使用繁體中文回應
+
 - 預設使用台灣常用的正體中文或繁體中文
 - 不使用簡體中文
 - 提供最新且可靠的資訊
 
 ### 回應格式
+
 - 提供具體的程式碼範例
 - 說明正確和錯誤的做法對比
 - 包含相關的無障礙考量
 - 提供效能優化建議
 
 ### 問題解決方式
+
 - 分析問題根本原因
 - 提供多種解決方案
 - 說明各方案的優缺點
@@ -280,4 +301,4 @@ Fixes #123
 5. **效能考量**：提及效能優化的可能性
 6. **提供替代方案**：如果有多種實作方式，說明各自優缺點
 
-記住：簡潔性和程式碼可讀性高於效能，完全實現所有請求的功能，徹底驗證最終結果。 
+記住：簡潔性和程式碼可讀性高於效能，完全實現所有請求的功能，徹底驗證最終結果。

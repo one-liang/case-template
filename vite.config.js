@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
-import { resolve } from 'path'
-import fs from 'fs'
-import path from 'path'
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
+import fs from 'fs';
+import path from 'path';
 
 export default defineConfig({
   // 開發伺服器配置
@@ -36,7 +36,7 @@ export default defineConfig({
         // JS 檔案輸出配置
         entryFileNames: 'assets/js/[name].js',
         chunkFileNames: 'assets/js/[name].js',
-        assetFileNames: (assetInfo) => {
+        assetFileNames: assetInfo => {
           const extType = assetInfo.name.split('.')[1];
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
             return `assets/images/[name][extname]`;
@@ -61,8 +61,13 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // 使用現代 Sass 語法，解決棄用警告
-        silenceDeprecations: ["legacy-js-api", "color-functions", "import", "global-builtin"],
-        api: "modern-compiler",
+        silenceDeprecations: [
+          'legacy-js-api',
+          'color-functions',
+          'import',
+          'global-builtin'
+        ],
+        api: 'modern-compiler',
         // 添加 includePaths 來解析 node_modules
         includePaths: ['node_modules']
       }
@@ -82,7 +87,7 @@ export default defineConfig({
 
   // 靜態資源處理
   publicDir: 'public',
-  
+
   // 設定根目錄
   root: 'src',
 
@@ -94,7 +99,7 @@ export default defineConfig({
       configureServer(server) {
         server.middlewares.use('/', (req, res, next) => {
           if (req.url === '/' && req.method === 'GET') {
-            res.writeHead(302, { 'Location': '/pages/index.html' });
+            res.writeHead(302, { Location: '/pages/index.html' });
             res.end();
             return;
           }
@@ -111,13 +116,16 @@ export default defineConfig({
           if (key.endsWith('.html')) {
             const sourcePath = path.join(options.dir, key);
             const targetPath = path.join(options.dir, path.basename(key));
-            
+
             if (sourcePath !== targetPath && fs.existsSync(sourcePath)) {
               fs.renameSync(sourcePath, targetPath);
-              
+
               // 清理空的資料夾
               const sourceDir = path.dirname(sourcePath);
-              if (fs.existsSync(sourceDir) && fs.readdirSync(sourceDir).length === 0) {
+              if (
+                fs.existsSync(sourceDir) &&
+                fs.readdirSync(sourceDir).length === 0
+              ) {
                 fs.rmdirSync(sourceDir, { recursive: true });
               }
             }
@@ -126,4 +134,4 @@ export default defineConfig({
       }
     }
   ]
-})
+});

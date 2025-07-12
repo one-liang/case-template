@@ -1,7 +1,7 @@
 // HTML Validate 配置 - HTML 驗證
 export default {
   extends: ['html-validate:recommended'],
-  
+
   rules: {
     // 無障礙設計規則
     'require-sri': 'off',
@@ -31,21 +31,21 @@ export default {
     'wcag/h37': 'error',
     'wcag/h67': 'error',
     'wcag/h71': 'error',
-    
+
     // 語意化 HTML
     'prefer-button': 'error',
     'prefer-tbody': 'warn',
     'no-implicit-close': 'error',
     'void-style': ['error', { style: 'omit' }],
-    
+
     // 屬性規則
     'attr-case': ['error', { style: 'lowercase' }],
     'attr-quotes': ['error', { style: 'double', unquoted: false }],
     'attribute-allowed-values': 'error',
     'attribute-boolean-style': ['error', { style: 'omit' }],
-    'deprecated': 'error',
+    deprecated: 'error',
     'deprecated-rule': 'error',
-    
+
     // 元素規則
     'element-case': ['error', { style: 'lowercase' }],
     'no-conditional-comment': 'error',
@@ -54,19 +54,19 @@ export default {
     'no-raw-characters': ['error', { relaxed: false }],
     'no-style-tag': 'warn',
     'no-utf8-byte-order-mark': 'error',
-    
+
     // 表單規則
     'form-dup-name': 'error',
     'input-attributes': 'error',
     'long-title': ['error', { maxlength: 70 }],
     'meta-refresh': 'error',
     'multiple-labeled-controls': 'error',
-    
+
     // SEO 規則
     'meta-viewport': 'error',
     'unrecognized-char-ref': 'error'
   },
-  
+
   elements: [
     'html5',
     {
@@ -81,9 +81,9 @@ export default {
       }
     }
   ],
-  
+
   plugins: [],
-  
+
   transform: {
     // 預處理器配置
     '^.*\\.html$': [
