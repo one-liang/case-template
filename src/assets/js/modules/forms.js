@@ -224,7 +224,9 @@ class FormManager {
     for (const rule of rules) {
       const validator = this.validationRules[rule.type];
 
-      if (!validator) {continue;}
+      if (!validator) {
+        continue;
+      }
 
       let ruleResult;
       if (rule.value !== undefined) {
@@ -402,7 +404,9 @@ class FormManager {
 
   // 設置提交按鈕載入狀態
   setSubmitButtonLoading(button, isLoading) {
-    if (!button) {return;}
+    if (!button) {
+      return;
+    }
 
     if (isLoading) {
       button.disabled = true;

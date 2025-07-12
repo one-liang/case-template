@@ -13,7 +13,8 @@ class ProjectManager {
       // 等待 DOM 完全載入
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () =>
-          this.initializeComponents());
+          this.initializeComponents()
+        );
       } else {
         this.initializeComponents();
       }
@@ -85,7 +86,9 @@ class ProjectManager {
   // 處理導航滾動效果
   handleNavScroll() {
     const navbar = document.querySelector('.navbar');
-    if (!navbar) {return;}
+    if (!navbar) {
+      return;
+    }
 
     const scrollTop = window.pageYOffset;
 
@@ -302,7 +305,9 @@ class ProjectManager {
 
   // 設置按鈕載入狀態
   setButtonLoading(button, isLoading) {
-    if (!button) {return;}
+    if (!button) {
+      return;
+    }
 
     if (isLoading) {
       button.disabled = true;
@@ -369,7 +374,9 @@ class ProjectManager {
   initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
-    if (animatedElements.length === 0) {return;}
+    if (animatedElements.length === 0) {
+      return;
+    }
 
     const observer = new IntersectionObserver(
       entries => {

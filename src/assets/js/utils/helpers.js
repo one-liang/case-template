@@ -13,12 +13,16 @@ export const debounce = (func, wait, immediate = false) => {
   return function executedFunction(...args) {
     const later = () => {
       timeout = null;
-      if (!immediate) {func(...args);}
+      if (!immediate) {
+        func(...args);
+      }
     };
     const callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-    if (callNow) {func(...args);}
+    if (callNow) {
+      func(...args);
+    }
   };
 };
 
@@ -45,9 +49,15 @@ export const throttle = (func, limit) => {
  * @returns {any} 拷貝後的對象
  */
 export const deepClone = obj => {
-  if (obj === null || typeof obj !== 'object') {return obj;}
-  if (obj instanceof Date) {return new Date(obj.getTime());}
-  if (obj instanceof Array) {return obj.map(item => deepClone(item));}
+  if (obj === null || typeof obj !== 'object') {
+    return obj;
+  }
+  if (obj instanceof Date) {
+    return new Date(obj.getTime());
+  }
+  if (obj instanceof Array) {
+    return obj.map(item => deepClone(item));
+  }
   if (typeof obj === 'object') {
     const clonedObj = {};
     for (const key in obj) {
@@ -77,7 +87,9 @@ export const formatNumber = (num, separator = ',') => {
  */
 export const formatDate = (date, format = 'YYYY-MM-DD') => {
   const d = new Date(date);
-  if (isNaN(d.getTime())) {return '';}
+  if (isNaN(d.getTime())) {
+    return '';
+  }
 
   const year = d.getFullYear();
   const month = String(d.getMonth() + 1).padStart(2, '0');
@@ -163,7 +175,9 @@ export const isElementInViewport = (element, threshold = 0) => {
 export const scrollToElement = (target, offset = 0, duration = 800) => {
   const element =
     typeof target === 'string' ? document.querySelector(target) : target;
-  if (!element) {return;}
+  if (!element) {
+    return;
+  }
 
   const targetPosition = element.offsetTop + offset;
   const startPosition = window.pageYOffset;
@@ -290,7 +304,9 @@ export const storage = {
   get(key) {
     try {
       const data = JSON.parse(localStorage.getItem(key));
-      if (!data) {return null;}
+      if (!data) {
+        return null;
+      }
 
       if (data.expires && Date.now() > data.expires) {
         localStorage.removeItem(key);
@@ -347,8 +363,12 @@ export const cookie = {
 
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
-      while (c.charAt(0) === ' ') {c = c.substring(1, c.length);}
-      if (c.indexOf(nameEQ) === 0) {return c.substring(nameEQ.length, c.length);}
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1, c.length);
+      }
+      if (c.indexOf(nameEQ) === 0) {
+        return c.substring(nameEQ.length, c.length);
+      }
     }
 
     return null;
@@ -403,7 +423,9 @@ export class EventEmitter {
    * @param {Function} callback - 回調函數
    */
   off(event, callback) {
-    if (!this.events.has(event)) {return;}
+    if (!this.events.has(event)) {
+      return;
+    }
 
     const callbacks = this.events.get(event);
     const index = callbacks.indexOf(callback);
@@ -419,7 +441,9 @@ export class EventEmitter {
    * @param {...any} args - 參數
    */
   emit(event, ...args) {
-    if (!this.events.has(event)) {return;}
+    if (!this.events.has(event)) {
+      return;
+    }
 
     this.events.get(event).forEach(callback => {
       try {
@@ -471,7 +495,9 @@ export const retry = async (fn, retries = 3, delayMs = 1000) => {
  * @returns {string} 格式化後的檔案大小
  */
 export const formatFileSize = (bytes, decimals = 2) => {
-  if (bytes === 0) {return '0 Bytes';}
+  if (bytes === 0) {
+    return '0 Bytes';
+  }
 
   const k = 1024;
   const dm = decimals < 0 ? 0 : decimals;

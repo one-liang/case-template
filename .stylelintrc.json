@@ -53,7 +53,10 @@
         "ignore": ["stylelint-commands"]
       }
     ],
-    "declaration-property-value-no-unknown": [true, { "ignoreProperties": { "background": "/$.*$/", "background-color": "/$.*$/", "border-bottom": "/$.*$/" } }],
+    "declaration-property-value-no-unknown": [
+      true,
+      { "ignoreProperties": { "background": "/$.*$/", "background-color": "/$.*$/", "border-bottom": "/$.*$/" } }
+    ],
     "media-feature-name-no-vendor-prefix": true,
     "custom-media-pattern": "^[a-z][a-zA-Z0-9-]*$",
     "custom-property-pattern": "^[a-z][a-zA-Z0-9-]*$",

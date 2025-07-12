@@ -111,7 +111,9 @@ class NavigationManager {
   smoothScrollToAnchor(anchor) {
     const targetElement = document.querySelector(anchor);
 
-    if (!targetElement) {return;}
+    if (!targetElement) {
+      return;
+    }
 
     const navHeight = this.navbar?.offsetHeight || 0;
     const offsetTop = targetElement.offsetTop - navHeight - 20;
@@ -153,7 +155,9 @@ class NavigationManager {
 
   // 滾動時更新導航列
   updateNavbarOnScroll() {
-    if (!this.navbar) {return;}
+    if (!this.navbar) {
+      return;
+    }
 
     const scrollTop = window.pageYOffset;
     const threshold = 100;
@@ -167,7 +171,9 @@ class NavigationManager {
 
   // 更新回到頂部按鈕
   updateBackToTopButton() {
-    if (!this.backToTopBtn) {return;}
+    if (!this.backToTopBtn) {
+      return;
+    }
 
     const scrollTop = window.pageYOffset;
     const threshold = 300;
