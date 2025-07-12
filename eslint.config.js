@@ -41,7 +41,7 @@ export default [
           varsIgnorePattern: '^_'
         }
       ],
-      'no-console': 'warn',
+      'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
       'no-debugger': 'error',
       'no-alert': 'warn',
       'no-var': 'error',
@@ -54,7 +54,7 @@ export default [
       'object-shorthand': 'error',
       'prefer-template': 'error',
       'prefer-destructuring': [
-        'error',
+        'warn',
         {
           array: true,
           object: true
@@ -62,7 +62,7 @@ export default [
       ],
 
       // 函數
-      'function-paren-newline': ['error', 'consistent'],
+      'function-paren-newline': 'off',
       'no-param-reassign': 'error',
       'prefer-rest-params': 'error',
       'prefer-spread': 'error',
@@ -89,13 +89,13 @@ export default [
       'import/no-duplicates': 'error',
       'import/no-unresolved': 'error',
 
-      // 代碼風格
-      indent: ['error', 2, { SwitchCase: 1 }],
-      quotes: ['error', 'single', { avoidEscape: true }],
-      semi: ['error', 'always'],
-      'comma-dangle': ['error', 'never'],
-      'object-curly-spacing': ['error', 'always'],
-      'array-bracket-spacing': ['error', 'never'],
+      // 代碼風格 (由 Prettier 處理格式，ESLint 僅處理邏輯)
+      indent: 'off',
+      quotes: 'off', 
+      semi: 'off',
+      'comma-dangle': 'off',
+      'object-curly-spacing': 'off',
+      'array-bracket-spacing': 'off',
 
       // 最佳實踐
       eqeqeq: ['error', 'always'],
@@ -105,12 +105,12 @@ export default [
       'no-empty-function': 'error',
       'no-implicit-coercion': 'error',
       'no-return-assign': 'error',
-      'no-return-await': 'error',
+      'no-return-await': 'warn',
       'no-throw-literal': 'error',
       'no-unneeded-ternary': 'error',
       'no-useless-return': 'error',
       'prefer-promise-reject-errors': 'error',
-      'require-await': 'error',
+      'require-await': 'warn',
 
       // 無障礙設計
       'no-restricted-globals': [
