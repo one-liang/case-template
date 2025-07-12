@@ -7,8 +7,15 @@ export default defineConfig({
   // 開發伺服器配置
   server: {
     port: 3000,
-    open: true,
-    host: true
+    open: '/pages/index.html',
+    host: true,
+    // 開發環境路由配置
+    middlewareMode: false,
+    proxy: {},
+    // 處理根路徑重定向到首頁
+    fs: {
+      strict: true
+    }
   },
 
   // 建置配置
@@ -81,6 +88,20 @@ export default defineConfig({
 
   // 插件配置
   plugins: [
+    // 開發環境根路徑重定向插件
+    {
+      name: 'dev-root-redirect',
+      configureServer(server) {
+        server.middlewares.use('/', (req, res, next) => {
+          if (req.url === '/' && req.method === 'GET') {
+            res.writeHead(302, { 'Location': '/pages/index.html' });
+            res.end();
+            return;
+          }
+          next();
+        });
+      }
+    },
     // 自訂插件來移動 HTML 檔案到根目錄
     {
       name: 'move-html-to-root',
