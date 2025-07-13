@@ -54,8 +54,10 @@ export default defineConfig({
     }
   },
 
-  // 設定 base 路徑：開發時用相對路徑，GitHub Pages 用專案名稱
-  base: process.env.NODE_ENV === 'production' ? '/case-template/' : './',
+  // 設定 base 路徑：根據部署環境調整
+  // GITHUB_PAGES=true npm run build 用於 GitHub Pages 部署
+  // 一般建置使用相對路徑
+  base: process.env.GITHUB_PAGES === 'true' ? '/case-template/' : './',
 
   // CSS 配置
   css: {

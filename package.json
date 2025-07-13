@@ -26,8 +26,9 @@
     "validate:html": "html-validate \"pages/**/*.html\"",
     "accessibility": "pa11y-ci --sitemap http://localhost:4173/sitemap.xml",
     "pre-commit": "npm run lint:check && npm run format:check && npm run validate:html",
-    "deploy": "npm run build && gh-pages -d dist",
-    "deploy:clean": "npm run build && gh-pages -d dist -f"
+    "build:github": "GITHUB_PAGES=true npm run build",
+    "deploy": "npm run build:github && gh-pages -d dist",
+    "deploy:clean": "npm run build:github && gh-pages -d dist -f"
   },
   "keywords": [
     "static",

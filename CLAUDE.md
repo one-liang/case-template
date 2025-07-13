@@ -233,8 +233,14 @@ npm install
 # 開發模式啟動
 npm run dev
 
-# 建置生產版本
+# 建置生產版本（相對路徑，適用於一般部署）
 npm run build
+
+# GitHub Pages 建置（絕對路徑）
+npm run build:github
+
+# 預覽生產版本
+npm run preview
 
 # 程式碼檢查
 npm run lint
@@ -242,6 +248,28 @@ npm run lint
 # 測試運行
 npm run test
 ```
+
+### 建置路徑說明
+
+專案支援兩種建置模式：
+
+#### 1. 一般建置（相對路徑）
+```bash
+npm run build
+```
+- 適用於：FTP 上傳、自訂伺服器、本地預覽
+- CSS/JS 路徑：`../assets/css/main.css`
+- 圖片路徑：`../assets/images/image.jpg`
+
+#### 2. GitHub Pages 建置（絕對路徑）
+```bash
+npm run build:github
+# 或直接部署
+npm run deploy
+```
+- 適用於：GitHub Pages 自動部署
+- CSS/JS 路徑：`/case-template/assets/css/main.css`
+- 圖片路徑：`/case-template/assets/images/image.jpg`
 
 ### Git 相關
 
