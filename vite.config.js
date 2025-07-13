@@ -20,7 +20,8 @@ export default defineConfig({
 
   // 建置配置
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
+    emptyOutDir: true,
     assetsDir: 'assets',
     // 保持檔案未壓縮 (符合規範要求)
     minify: false,
